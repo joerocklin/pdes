@@ -213,9 +213,9 @@ PosixFileManager::getAllFiles( const string &reg_ex, const string &dir ) const {
 	retval->push_back( fullPath );
       }
     }
+    status = closedir( currentDir );
   }
   
-  status = closedir( currentDir );
   if( status != 0 ){
     lastError = errno;
   }
