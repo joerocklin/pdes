@@ -2,6 +2,23 @@ Makefile
 libtool
 .deps/
 stamp-h1
+.libs
+*.lo
+*.o
+*.la
+*.dlg
 
 src/utils/UtilsConfig.h.in
 src/utils/UtilsConfig.h
+src/utils/AParser.cpp
+src/utils/ATokenBuffer.cpp
+src/utils/BufFileInput.cpp
+src/utils/ConfigurationLexer.cpp
+src/utils/ConfigurationLexer.h
+src/utils/ConfigurationParser.cpp
+src/utils/ConfigurationParserHandle.cpp
+src/utils/ConfigurationParserHandle.h
+src/utils/DLexerBase.cpp
+src/utils/slist.cpp
+src/utils/tokens.h
+test/regressionTest
