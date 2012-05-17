@@ -1,1 +1,7 @@
+Makefile
+libtool
+.deps/
+stamp-h1
+
 src/utils/UtilsConfig.h.in
+src/utils/UtilsConfig.h
