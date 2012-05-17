@@ -1,4 +1,10 @@
 INSTALL
 m4
+stamp-h1
+Makefile
+libtool
 
+.deps
 src/warped/WarpedConfig.h.in
+src/warped/WarpedConfig.h
+
