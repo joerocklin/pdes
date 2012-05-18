@@ -5,6 +5,9 @@ Makefile
 libtool
 
 .deps
+.libs
+*.o
+*.lo
+*.la
 src/warped/WarpedConfig.h.in
 src/warped/WarpedConfig.h
-
