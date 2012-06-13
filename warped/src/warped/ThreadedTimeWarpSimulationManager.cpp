@@ -4,6 +4,7 @@
 #include "DefaultSchedulingManager.h"
 #include "ThreadedLazyOutputManager.h"
 #include "ThreadedDynamicOutputManager.h"
+#include "ThreadedAggressiveOutputManager.h"
 #include "StopWatch.h"
 #include "ObjectStub.h"
 #include "SimulationObjectProxy.h"
@@ -28,7 +29,7 @@
 #include "PartitionInfo.h"
 #include "StragglerEvent.h"
 #include "ThreadedMatternGVTManager.h"
-
+#include "SimulationConfiguration.h"
 
 int WorkerInformation::globalStillBusyCount = 0;
 bool WorkerInformation::workRemaining = true;
@@ -44,6 +45,8 @@ ThreadedTimeWarpSimulationManager::ThreadedTimeWarpSimulationManager(
 			myOutputManager(0), mySchedulingManager(0), checkGVT(false),
 			GVTTimePeriodLock(new AtomicState()), terminationCheckCount(0),
 			LVTFlag(0), LVTFlagLock(new AtomicState()),
+			numberOfRemoteAntimessages(0), numberOfNegativeEventMessage(0),
+			numberOfLocalAntimessages(0),
 			computeLVTStatus(new bool*[numberOfWorkerThreads + 1]),
 			rollbackCompleted(new bool[numberOfObjects]), inRecovery(false),
 			GVTTokenPending(false), TimeWarpSimulationManager(initApplication) {
@@ -211,8 +214,9 @@ bool ThreadedTimeWarpSimulationManager::executeObjects(
 								nextEvent->getReceiveTime(), threadId);
 					}
 				} else if (outMgrType == ADAPTIVEMGR) {
-					ThreadedDynamicOutputManager *myDynamicOutputManager =
-							static_cast<ThreadedDynamicOutputManager *> (myOutputManager);
+					ThreadedDynamicOutputManager
+							*myDynamicOutputManager =
+									static_cast<ThreadedDynamicOutputManager *> (myOutputManager);
 					ASSERT(myDynamicOutputManager != NULL);
 					if (nextEvent != NULL)
 						myDynamicOutputManager->emptyLazyQueue(nextObject,
@@ -304,7 +308,8 @@ void ThreadedTimeWarpSimulationManager::simulate(const VTime& simulateUntil) {
 		getMessages();
 		//Calculate GVT
 		if (!usingOptFossilCollection) {
-			if (checkGVT && mySimulationManagerID == 0) {
+			if (/*!(myGVTManager->getGVTTokenStatus()) &&*/checkGVT
+					&& mySimulationManagerID == 0) {
 				if (!GVTTokenPending) {
 					initiateLocalGVT();
 					setGVTTokenPending();
@@ -352,9 +357,29 @@ void ThreadedTimeWarpSimulationManager::simulate(const VTime& simulateUntil) {
 	}
 	sendPendingMessages();
 	stopwatch.stop();
-	cout << "After Simulation :: Event Count in Unprocessed Queue is = "
-			<< dynamic_cast<ThreadedTimeWarpMultiSet*> (myEventSet)->getMessageCount(
-					0) << endl;
+	ostringstream oss;
+	oss << "lp" << mySimulationManagerID << ".csv";
+	ofstream file(oss.str().c_str(), ios_base::app);
+	if (file)
+		file << stopwatch.elapsed() << ',' << numberOfRollbacks << ',' << 0
+				<< ',' << 1 << endl;
+
+	//	cout << "After Simulation :: Event Count in Unprocessed Queue is = "
+	//			<< dynamic_cast<ThreadedTimeWarpMultiSet*> (myEventSet)->getMessageCount(
+	//					0) << endl;
+
+	cout << "(" << getSimulationManagerID()
+			<< ") Number of Local AntiMessages sent "
+			<< numberOfLocalAntimessages << endl;
+
+	cout << "(" << getSimulationManagerID()
+			<< ") Number of Remote AntiMessages sent "
+			<< numberOfRemoteAntimessages << endl;
+
+	cout << "(" << getSimulationManagerID()
+			<< ") Number of Remote Negative Event Messages sent "
+			<< numberOfNegativeEventMessage << endl;
+
 	//kill all Workers
 	WorkerInformation::killWorkerThreads();
 	//join Worker threads
@@ -439,11 +464,13 @@ void ThreadedTimeWarpSimulationManager::handleEvent(const Event *event) {
 				shouldHandleEvent = !myLazyOutputManager->lazyCancel(event,
 						threadID);
 			} else if (outMgrType == ADAPTIVEMGR) {
-								ThreadedDynamicOutputManager *myDynamicOutputManager =
-				 static_cast<ThreadedDynamicOutputManager *> (myOutputManager);
-				 ASSERT(myDynamicOutputManager != NULL);
-				 shouldHandleEvent
-				 = !myDynamicOutputManager->checkDynamicCancel(event, threadID);
+				ThreadedDynamicOutputManager
+						*myDynamicOutputManager =
+								static_cast<ThreadedDynamicOutputManager *> (myOutputManager);
+				ASSERT(myDynamicOutputManager != NULL);
+				shouldHandleEvent
+						= !myDynamicOutputManager->checkDynamicCancel(event,
+								threadID);
 			}
 		}
 	}
@@ -508,6 +535,7 @@ void ThreadedTimeWarpSimulationManager::cancelLocalEvents(
 			lowTime = &(curEvent->getReceiveTime());
 		}
 	}
+	__sync_fetch_and_add(&numberOfLocalAntimessages, eventsToCancel.size());
 	SimulationObject *receiver = getObjectHandle(
 			eventsToCancel[0]->getReceiver());
 	unsigned int objId = receiver->getObjectID()->getSimulationObjectID();
@@ -566,6 +594,9 @@ void ThreadedTimeWarpSimulationManager::cancelRemoteEvents(
 			vector<const NegativeEvent*> partToCancel(start, cur);
 			NegativeEventMessage *newMessage = new NegativeEventMessage(
 					getSimulationManagerID(), destId, partToCancel, gVTInfo);
+			__sync_fetch_and_add(&numberOfNegativeEventMessage, 1);
+			__sync_fetch_and_add(&numberOfRemoteAntimessages,
+					partToCancel.size());
 			sendMessage(newMessage, destId);
 		}
 	} else {
@@ -580,6 +611,8 @@ void ThreadedTimeWarpSimulationManager::cancelRemoteEvents(
 				getSimulationManagerID(), destId, *min);
 		NegativeEventMessage *newMessage = new NegativeEventMessage(
 				getSimulationManagerID(), destId, eventsToCancel, gVTInfo);
+		__sync_fetch_and_add(&numberOfNegativeEventMessage, 1);
+		__sync_fetch_and_add(&numberOfRemoteAntimessages, eventsToCancel.size());
 		sendMessage(newMessage, destId);
 	}
 	/*
@@ -1052,6 +1085,16 @@ void ThreadedTimeWarpSimulationManager::configure(
 	// hence the n - 1.
 	myCommunicationManager->waitForInitialization(
 			numberOfSimulationManagers - 1);
+	ostringstream oss;
+	oss << "lp" << mySimulationManagerID << ".csv";
+	ofstream file(oss.str().c_str());
+	if (file) {
+		const vector<string>& args = configuration.getArguments();
+		vector<string>::const_iterator it(args.begin());
+		for (; it != args.end(); ++it)
+			file << " " << *it;
+		file << endl;
+	}
 
 }
 
@@ -1361,15 +1404,38 @@ bool ThreadedTimeWarpSimulationManager::updateLVTfromArray() {
 				minimum = LVTArray[i];
 		}
 		utils::debug << "(" << mySimulationManagerID << " ) Computed LVT ="
-				<< *minimum << endl;
-		if (lvtCount == 1) {
+				<< *minimum << ":::::" << myGVTManager->getGVT() << "::::::"
+				<< endl;
+		switch (lvtCount) {
+		case 1:
 			LVT = minimum->clone();
 			LVTFlag = (numberOfWorkerThreads - 1);
 			for (int i = 1; i < numberOfWorkerThreads; i++) {
 				delete (LVTArray[i]);
 			}
 			resetComputeLVTStatus();
-		} else {
+			break;
+		case 2:
+			if (*LVT > *minimum) {
+				LVT = minimum->clone();
+			}
+			LVTFlag = (numberOfWorkerThreads - 1);
+			for (int i = 1; i < numberOfWorkerThreads; i++) {
+				delete (LVTArray[i]);
+			}
+			resetComputeLVTStatus();
+			break;
+			/*		case 3:
+			 if (*LVT > *minimum) {
+			 LVT = minimum->clone();
+			 }
+			 LVTFlag = (numberOfWorkerThreads - 1);
+			 for (int i = 1; i < numberOfWorkerThreads; i++) {
+			 delete (LVTArray[i]);
+			 }
+			 resetComputeLVTStatus();
+			 break;*/
+		case 3:
 			if (*LVT > *minimum) {
 				LVT = minimum->clone();
 			}
@@ -1378,6 +1444,7 @@ bool ThreadedTimeWarpSimulationManager::updateLVTfromArray() {
 			for (int i = 1; i < numberOfWorkerThreads; i++) {
 				delete (LVTArray[i]);
 			}
+
 		}
 	}
 	releaseLVTFlagLock(0);
@@ -1450,8 +1517,6 @@ bool ThreadedTimeWarpSimulationManager::initiateLocalGVT() {
 }
 
 bool ThreadedTimeWarpSimulationManager::setGVTTokenPending() {
-	utils::debug << "(" << mySimulationManagerID << ")"
-			<< " Received a GVT request" << endl;
 	return __sync_bool_compare_and_swap(&GVTTokenPending, false, true);
 }
 

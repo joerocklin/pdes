@@ -6,9 +6,14 @@
 #include "Event.h"
 
 ThreadedDynamicOutputManager::ThreadedDynamicOutputManager(
-		ThreadedTimeWarpSimulationManager *simMgr, bool useThirdThreshold) :
+		ThreadedTimeWarpSimulationManager *simMgr, unsigned int filterDepth,
+		double aggr2lazy, double lazy2aggr, double thirdThreshold,
+		bool useThirdThreshold) :
 			ThreadedLazyOutputManager(simMgr),
-			filterDepth(FILTER_DEPTH),
+			filterDepth(filterDepth),
+			aggressive_to_lazy(aggr2lazy),
+			lazy_to_aggressive(lazy2aggr),
+			third_threshold(thirdThreshold),
 			thirdThreshold(useThirdThreshold),
 			comparisonResults(simMgr->getNumberOfSimulationObjects(),
 					new vector<int> (filterDepth, 0)) {
@@ -27,7 +32,7 @@ ThreadedDynamicOutputManager::ThreadedDynamicOutputManager(
 		hitRatio.push_back(tempRatio);
 		curMeasured.push_back(tempCurMeasured);
 		permanentlyAggressive.push_back(tempPermanentAggr);
-		//		*compareAndInsertMode[i] = false;
+		*compareAndInsertMode[i] = true;
 		curCancelMode.push_back(tempMode);
 	}
 }
@@ -87,7 +92,6 @@ bool ThreadedDynamicOutputManager::checkDynamicCancel(const Event *event,
 				(*(comparisonResults[objID]))[(*curMeasured[objID])
 						% filterDepth] = 0;
 				*curMeasured[objID] = *curMeasured[objID] + 1;
-				;
 			}
 
 			if (*curMeasured[objID] >= filterDepth) {
@@ -123,10 +127,12 @@ cancellationModes ThreadedDynamicOutputManager::determinecancellationModes(
 	}
 
 	*hitRatio[objID] = (float) (*hitCount[objID]) / filterDepth;
+	utils::debug << "Object " << objID << " Hit Ratio is " << *hitRatio[objID]
+			<< endl;
 
 	// If the hit ratio is between the AGGRESSIVE_TO_LAZY and LAZY_TO_AGGRESSIVE
 	// values, then do not change the mode.
-	if (thirdThreshold && *hitRatio[objID] < THIRD_THRESHOLD) {
+	if (thirdThreshold && *hitRatio[objID] < third_threshold) {
 		if (*curCancelMode[objID] == Lazy) {
 			utils::debug << "Object " << objID
 					<< " Switching from Lazy to Aggressive Output Manager PERMANENTLY.\n";
@@ -136,14 +142,14 @@ cancellationModes ThreadedDynamicOutputManager::determinecancellationModes(
 		setCompareMode(object, false);
 		*permanentlyAggressive[objID] = true;
 	} else if ((*curCancelMode[objID]) == Lazy && (*hitRatio[objID])
-			< LAZY_TO_AGGRESSIVE) {
+			< lazy_to_aggressive) {
 		utils::debug << "Object " << objID
 				<< " Switching from Lazy to Aggressive Output Manager.\n";
 		*curCancelMode[objID] = Aggressive;
 		setCompareMode(object, false);
 		lazyToAggr = true;
 	} else if ((*curCancelMode[objID]) == Aggressive && (*hitRatio[objID])
-			> AGGRESSIVE_TO_LAZY) {
+			> aggressive_to_lazy) {
 		utils::debug << "Object " << objID
 				<< " Switching from Aggressive to Lazy Output Manager.\n";
 		*curCancelMode[objID] = Lazy;
@@ -211,9 +217,19 @@ void ThreadedDynamicOutputManager::emptyLazyQueue(SimulationObject *object,
 			if (*curCancelMode[id] == Lazy) {
 				(eventsToCancel[id])->push_back(*LCEvent);
 			}
+			(*lazyMissCount[id])++;
 			LCEvent = (lazyQueues[id])->erase(LCEvent);
 			(*(comparisonResults[id]))[(*curMeasured[id]) % filterDepth] = 0;
 			*curMeasured[id] = (*curMeasured[id]) + 1;
+		}
+
+		if (lazyQueues[id]->size() <= 0) {
+			//End lazy cancellation phase.
+			utils::debug << "Dynamic Cancellation Phase Complete For Object: "
+					<< id << " Hits: " << *lazyHitCount[id] << " Misses: "
+					<< *lazyMissCount[id] << "\n";
+			*lazyHitCount[id] = 0;
+			*lazyMissCount[id] = 0;
 		}
 	}
 
@@ -236,6 +252,8 @@ void ThreadedDynamicOutputManager::rollback(SimulationObject *object,
 					rollbackTime, threadId);
 
 	if (!(*permanentlyAggressive[objID])) {
+		utils::debug << tempOutEvents->size() << " events added to object "
+				<< objID << " Dynamic Lazy Queue" << endl;
 		//These output events need to be added to the lazy cancel queue. There may already be
 		//events in the queue, so the new ones need to be added.
 		vector<const Event*> *lazyCancelEvents = lazyQueues[objID];

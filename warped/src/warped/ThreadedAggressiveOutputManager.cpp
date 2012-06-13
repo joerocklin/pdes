@@ -16,9 +16,11 @@ ThreadedAggressiveOutputManager::~ThreadedAggressiveOutputManager() {
 
 void ThreadedAggressiveOutputManager::rollback(SimulationObject *object,
 		const VTime &rollbackTime, int threadID) {
-	ThreadedOutputEvents &outputEvents = getOutputEventsFor(*(object->getObjectID()));
-	vector<const Event *> *eventsToCancel =
-			outputEvents.getEventsSentAtOrAfterAndRemove(rollbackTime, threadID);
+	ThreadedOutputEvents &outputEvents = getOutputEventsFor(
+			*(object->getObjectID()));
+	vector<const Event *>
+			*eventsToCancel = outputEvents.getEventsSentAtOrAfterAndRemove(
+					rollbackTime, threadID);
 
 	if (eventsToCancel->size() > 0) {
 		getSimulationManager()->cancelEvents(*eventsToCancel);

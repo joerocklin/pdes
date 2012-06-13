@@ -75,14 +75,18 @@ void ThreadedMatternGVTManager::receiveKernelMessage(KernelMessage *msg) {
 				}
 			} else {
 				// Not yet ready to calculate gvt, send the token around again.
-				objectRecord->setNumberOfWhiteMessages(
-						objectRecord->getNumberOfWhiteMessages() + count);
+               // cout <<"NUmber of Transit messages "<<count <<endl;
+               // cout <<"NUmber of White messages "<<objectRecord->getNumberOfWhiteMessages()<<endl;
+                objectRecord->setNumberOfWhiteMessages(
+                        objectRecord->getNumberOfWhiteMessages() + count);
 				mySimulationManager->setGVTTokenPending();
 				mySimulationManager->initiateLocalGVT();
 				GVTMessageLastScheduledEventTime =
 						gVTMessage->getLastScheduledEventTime().clone();
 				GVTMessageMinimumTimeStamp =
 						gVTMessage->getMinimumTimeStamp().clone();
+                objectRecord->setNumberOfWhiteMessages(0);
+
 			}
 		} else {
 			// The gvt token has been received by another simulation manager.
@@ -143,8 +147,8 @@ void ThreadedMatternGVTManager::sendPendingGVTToken() {
 			MIN_FUNC(*GVTMessageLastScheduledEventTime, *lowEventTime),
 			MIN_FUNC(*GVTMessageMinimumTimeStamp,
 					*objectRecord->getMinTimeStamp()));
-	/*delete GVTMessageLastScheduledEventTime;
-	delete GVTMessageMinimumTimeStamp;*/
+	delete GVTMessageLastScheduledEventTime;
+	delete GVTMessageMinimumTimeStamp;
 	// This is reset to record the number of messages received since the last round.
 	objectRecord->setNumberOfWhiteMessages(0);
 
