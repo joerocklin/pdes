@@ -9,3 +9,6 @@ ltmain.sh
 missing
 
 .*.swp
+utils/scan-docs
+warped/scan-docs
+*.plist
