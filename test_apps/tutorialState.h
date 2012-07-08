@@ -3,7 +3,7 @@
 
 #include "tutorial.h"
 
-#include <warped/state.h>
+#include <warped/State.h>
 
 class TutorialState : public State {
 public:
