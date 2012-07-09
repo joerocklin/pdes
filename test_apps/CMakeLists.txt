@@ -9,5 +9,6 @@ add_executable(Tutorial
 		tutorialApplication.cxx 
 		tutorialObject.cxx 
 		tutorialState.cxx
+		tutorialMessage.cxx
 )
 target_link_libraries( Tutorial ${WARPED_LIBRARY} )

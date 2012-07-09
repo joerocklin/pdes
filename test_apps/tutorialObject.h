@@ -24,11 +24,13 @@ public:
   void executeProcess();
   void finalize();
   
-  const string &getName() const { enter_method; return objectName; }
+  const string &getName() const { return this->name; }
+  const int getId() const { return this->id; }
 
 private:
-  /// The name of this simulation object.
-  string objectName;
+  /// The ID of this simulation object.
+  int id;
+  string name;
   
 };
 
