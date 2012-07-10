@@ -15,7 +15,7 @@ TutorialApplication::TutorialApplication() {
  */
 void TutorialApplication::registerDeserializers() {
   enter_method;
-  this->numObjects = 25;
+  this->numObjects = 5;
 }
 
 /** initialize
