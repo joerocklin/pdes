@@ -1,0 +1,3 @@
+[submodule "test_apps/simternet/vswitch"]
+	path = test_apps/simternet/vswitch
+	url = git://openvswitch.org/openvswitch
