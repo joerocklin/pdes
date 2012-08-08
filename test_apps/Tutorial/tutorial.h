@@ -4,8 +4,10 @@
 #include <iostream>
 using namespace std;
 
-#define print_method_string cout << "-- " << __FILE__ << ":" << __LINE__ << " - " << __FUNCTION__;
-#define enter_method print_method_string; cout << endl;
-#define method_with_id(id) print_method_string; cout << " ID: " << id << endl;
+static unsigned int debug_level = 0;
+
+#define print_method_string if (debug_level > 2) { cout << "-- " << __FILE__ << ":" << __LINE__ << " - " << __FUNCTION__; }
+#define enter_method if (debug_level > 2) { print_method_string; cout << endl; }
+#define method_with_id(id) if (debug_level > 2) { print_method_string; cout << " ID: " << id << endl; }
 
 #endif

@@ -26,11 +26,19 @@ public:
   
   const string &getName() const { return this->name; }
   const int getId() const { return this->id; }
+  const unsigned int getLoopCount() const { return this->loop_count; }
+
+  void setSendAck(bool ack) { this->sendAck = ack; }
+  void setLoopCount(unsigned int count) { this->loop_count = count; }
 
 private:
   /// The ID of this simulation object.
   int id;
   string name;
+  
+  unsigned int loop_count;
+  
+  bool sendAck;
   
 };
 

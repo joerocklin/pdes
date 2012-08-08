@@ -26,10 +26,16 @@ public:
   const VTime &getTime(string &){ enter_method; return IntVTime::getIntVTimeZero(); }
   
 private:
+  // An argument parser from the utils source. This will get executed during
+  // application initialization.
+  ArgumentParser &getArgumentParser();
+  
   // And now methods which are called from the above
   vector<SimulationObject *> *getSimulationObjects();
 
   unsigned int numObjects;
+  bool sendAcks;
+  unsigned int loop_count;
 };
 
 #endif

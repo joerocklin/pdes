@@ -12,6 +12,7 @@ TutorialMessage::TutorialMessage(
                 SimulationObject *receiver)
   : DefaultEvent(sendTime ,recvTime, sender, receiver) {
   enter_method;
+  this->flags = 0;
 }
 
 // Constructor called by deserializer.
@@ -22,6 +23,7 @@ TutorialMessage::TutorialMessage(const VTime &sendTime,
                 unsigned int initEventId)
   :DefaultEvent(sendTime ,recvTime, sender, receiver, initEventId) {
   enter_method; 
+  this->flags = 0;
 }
 
 const string &TutorialMessage::getDataType() const {
@@ -46,7 +48,8 @@ bool TutorialMessage::eventCompare(const Event* event) {
     
     // Include any comparisons specific to TutorialMessage members
     this->sinkObject == tutorialEvent->sinkObject &&
-    this->sourceObject == tutorialEvent->sourceObject
+    this->sourceObject == tutorialEvent->sourceObject &&
+    this->flags == tutorialEvent->flags
   );
 }
 
@@ -59,6 +62,7 @@ void TutorialMessage::serialize(SerializedInstance *instance) const {
   // Add our information
   instance->addString(sinkObject);
   instance->addString(sourceObject);
+  instance->addUnsigned(flags);
 }
 
 Serializable *TutorialMessage::deserialize(SerializedInstance *instance) {
@@ -86,6 +90,7 @@ Serializable *TutorialMessage::deserialize(SerializedInstance *instance) {
   // Deserialize our additions
   message->setSinkObject( instance->getString() );
   message->setSourceObject( instance->getString() );
+  message->setFlags( instance->getUnsigned() );
   
   // Cleanup
   delete sendTime;

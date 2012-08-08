@@ -3,11 +3,14 @@
 #include "tutorialObject.h"
 
 #include <warped/RoundRobinPartitioner.h>
+#include <utils/ArgumentParser.h>
 
 #include <vector>
 
 TutorialApplication::TutorialApplication() {
   enter_method;
+  this->numObjects = 5;
+  this->loop_count = 1;
 }
 
 /** registerDeserializers
@@ -15,7 +18,6 @@ TutorialApplication::TutorialApplication() {
  */
 void TutorialApplication::registerDeserializers() {
   enter_method;
-  this->numObjects = 5;
 }
 
 /** initialize
@@ -26,7 +28,21 @@ void TutorialApplication::registerDeserializers() {
 int TutorialApplication::initialize( vector<string> &arguments ) {
   enter_method;
   
+  this->getArgumentParser().checkArgs( arguments );
+  
   return 0;
+}
+
+ArgumentParser &TutorialApplication::getArgumentParser() {
+  static ArgumentParser::ArgRecord args[] = {
+    { "-nodes", "Number of nodes to use (default 5)", &numObjects, ArgumentParser::INTEGER, false },
+    { "-loops", "Number of times to loop the nodes (default 1)", &loop_count, ArgumentParser::INTEGER, false},
+    { "-ack", "Send acknowledge messages", &sendAcks, ArgumentParser::BOOLEAN, false },
+    { "-debug", "Debug level", &::debug_level, ArgumentParser::INTEGER, false },
+    { "", "", 0 }
+  };
+  static ArgumentParser *myArgParser = new ArgumentParser( args );
+  return *myArgParser;
 }
 
 /** getNumberOfSimulationObjects
@@ -54,7 +70,8 @@ string TutorialApplication::getCommandLineParameters() const {
  */
 const PartitionInfo* TutorialApplication::getPartitionInfo( unsigned int numProcessorsAvailable ) {
   enter_method;
-  cout << "--- numProcessorsAvailable: " << numProcessorsAvailable << endl;
+  
+  if (debug_level > 2) { cout << "--- numProcessorsAvailable: " << numProcessorsAvailable << endl; }
   const PartitionInfo *ret_partition = 0;
   
   // Select a partitioning algorithm
@@ -75,16 +92,18 @@ const PartitionInfo* TutorialApplication::getPartitionInfo( unsigned int numProc
 vector<SimulationObject *> *TutorialApplication::getSimulationObjects() {
   enter_method;
   
+  TutorialObject *obj = NULL;
   vector<SimulationObject *> *simObjects = new vector<SimulationObject *>;
   
   for (int i = 0; i < numObjects; i++) {
-    simObjects->push_back( new TutorialObject(i) );
+    obj = new TutorialObject(i);
+    obj->setSendAck(this->sendAcks);
+    obj->setLoopCount(this->loop_count);
+    simObjects->push_back( obj );
   }
   
   return simObjects;
 }
-
-
 
 int TutorialApplication::finalize() {
   enter_method;

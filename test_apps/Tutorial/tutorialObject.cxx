@@ -13,8 +13,10 @@ TutorialObject::TutorialObject( const int initid ) {
   print_method_string;
   ostringstream tmpname;
   
+  this->loop_count = 0;
+  
   this->id = initid;
-  cout << ": " << this->id << endl;
+  if (debug_level > 2) { cout << ": " << this->id << endl; }
   
   tmpname << "ID_" << initid;
   this->name = tmpname.str();
@@ -54,6 +56,7 @@ void TutorialObject::initialize() {
     TutorialMessage* newMessage = new TutorialMessage(sendTime, sendTime + 1, this, this);
     newMessage->setSourceObject(getName());
     newMessage->setSinkObject("");
+    newMessage->setFlag(SYN);
   
     this->receiveEvent(newMessage);
   }
@@ -82,13 +85,18 @@ void TutorialObject::executeProcess() {
     
     if (recvMsg != NULL) {
       SimulationObject *msgSourceObject = getObjectHandle(recvMsg->getSourceObject());
+
+      if (debug_level > 1) {
+        cout << "--- " << this->id << " received event from " 
+          << msgSourceObject->getName() << " at t" << startTime << endl;
+      }
       
-      cout << "--- " << this->id << " received event from " 
-        << msgSourceObject->getName() << " at t" << startTime << endl;
-      
-      // If we are the first object and we receive a message from someone other
-      // than ourselves, the the simulation has finished
-      if (this->getId() == 0 && msgSourceObject->getName() != "ID_0") {
+      // If we are the first object and we receive a SYN message from someone other
+      // than ourselves and have finished all loops, then the simulation has finished
+      if (this->getId() == 0 && 
+          recvMsg->getFlag(SYN) && 
+          msgSourceObject->getName() != "ID_0" &&
+          --loop_count == 0) {
         break;
       }
       
@@ -98,25 +106,46 @@ void TutorialObject::executeProcess() {
       if (msgRecvObject == NULL) {
         msgRecvObject = getObjectHandle("ID_0");
       }
-      
-      // Set the send & receive times for the new message
+
+      // Set the send & receive times for the new SYN message
       sendTime = startTime + 1;
-      recvTime = startTime + 2;         
+      recvTime = startTime + 2;
       
-      // Create the new message
-      newMsg = new TutorialMessage(sendTime, recvTime, this, msgRecvObject);
-      newMsg->setSourceObject(getName());
-      newMsg->setSinkObject(msgRecvObject->getName());
+      if (recvMsg->getFlag(SYN) && this->sendAck) {
+        // Send an ACK message
+        newMsg = new TutorialMessage(sendTime, recvTime, this, msgSourceObject);
+        newMsg->setSourceObject(getName());
+        newMsg->setSinkObject(msgSourceObject->getName());
+        newMsg->setFlag(ACK);
+
+        if (debug_level > 1) {
+          cout << "--- " << this->id << " sending message " << newMsg->getFlags() << " to "
+            << msgSourceObject->getName() << " at t" << sendTime 
+            << " to receive at t" << recvTime << endl;
+        }
+
+        msgSourceObject->receiveEvent(newMsg);
+      }
       
-      cout << "--- " << this->id << " sending message to "
-        << msgRecvObject->getName() << " at t" << sendTime 
-        << " to receive at t" << recvTime << endl;
+      if (recvMsg->getFlag(SYN)) {
+        // Create the new message
+        newMsg = new TutorialMessage(sendTime, recvTime, this, msgRecvObject);
+        newMsg->setSourceObject(getName());
+        newMsg->setSinkObject(msgRecvObject->getName());
+        newMsg->setFlag(SYN);
         
-      msgRecvObject->receiveEvent(newMsg);
+        if (debug_level > 1) {
+          cout << "--- " << this->id << " sending message " << newMsg->getFlags() << " to "
+            << msgRecvObject->getName() << " at t" << sendTime 
+            << " to receive at t" << recvTime << endl;
+        }
+        
+        msgRecvObject->receiveEvent(newMsg);
+      }
     }
   }
   
-  cout << "--- " << this->id << " finished processing events" << endl;
+  if (debug_level > 2) { cout << "--- " << this->id << " finished processing events" << endl; }
 }
 
 void TutorialObject::finalize() {
