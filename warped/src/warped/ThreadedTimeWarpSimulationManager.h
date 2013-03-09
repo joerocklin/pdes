@@ -24,7 +24,8 @@ template<class element> class LockedQueue;
 class ThreadedTimeWarpSimulationManager: public TimeWarpSimulationManager {
 public:
 	ThreadedTimeWarpSimulationManager(unsigned int numberOfWorkerThreads,
-			Application *initApplication);
+			const string syncMechanism, const string scheduleQScheme,
+			unsigned int scheduleQCount, Application *initApplication);
 	virtual ~ThreadedTimeWarpSimulationManager();
 	/** Return a handle to the state manager.
 
@@ -60,6 +61,18 @@ public:
 
 	int getNumberofThreads() {
 		return numberOfWorkerThreads;
+	}
+
+	const string getSyncMechanism() {
+		return syncMechanism;
+	}
+
+	const string getScheduleQScheme() {
+		return scheduleQScheme;
+	}
+
+	unsigned int getScheduleQCount() {
+		return scheduleQCount;
 	}
 
 	/** Create a map of simulation objects.
@@ -323,6 +336,16 @@ private:
 
 	///Specified in the ThreadControl scope of the configuration file
 	unsigned int numberOfWorkerThreads;
+
+	//Specfied in the ThreadControl scope the configuraion file
+	const string syncMechanism;
+
+	//Specfiy the Scheduler scope of the configuraion file
+	const string scheduleQScheme;
+
+	//Specified in the Scheduler scope of the configuration file
+	unsigned int scheduleQCount;
+
 public:
 	///Holds information each thread needs to operate
 	WorkerInformation **workerStatus;
@@ -353,8 +376,6 @@ private:
 	AtomicState* GVTTimePeriodLock;
 
 	unsigned int masterID;
-
-	unsigned int terminationCheckCount;
 
 	//Flag for initiating the LVT Calculation between threads
 	unsigned int LVTFlag;

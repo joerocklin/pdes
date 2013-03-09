@@ -37,13 +37,16 @@ bool WorkerInformation::workRemaining = true;
 static pthread_key_t threadKey;
 
 ThreadedTimeWarpSimulationManager::ThreadedTimeWarpSimulationManager(
-		unsigned int numberOfWorkerThreads, Application *initApplication) :
-	numberOfWorkerThreads(numberOfWorkerThreads), masterID(0),
+		unsigned int numberOfWorkerThreads, const string syncMechanism, 
+		const string scheduleQScheme, unsigned int scheduleQCount, 
+		Application *initApplication) :
+			numberOfWorkerThreads(numberOfWorkerThreads), syncMechanism(syncMechanism), 
+			scheduleQScheme(scheduleQScheme), scheduleQCount(scheduleQCount), masterID(0),
 			coastForwardTime(0), myrealFossilCollManager(0), myStateManager(0),
 			messageBuffer(new LockedQueue<KernelMessage*> ),
 			workerStatus(new WorkerInformation*[numberOfWorkerThreads + 1]),
 			myOutputManager(0), mySchedulingManager(0), checkGVT(false),
-			GVTTimePeriodLock(new AtomicState()), terminationCheckCount(0),
+			GVTTimePeriodLock(new AtomicState()),
 			LVTFlag(0), LVTFlagLock(new AtomicState()),
 			numberOfRemoteAntimessages(0), numberOfNegativeEventMessage(0),
 			numberOfLocalAntimessages(0),
@@ -53,14 +56,13 @@ ThreadedTimeWarpSimulationManager::ThreadedTimeWarpSimulationManager(
 	LVT = &getZero();
 	LVTArray = new const VTime *[numberOfWorkerThreads + 1];
 	sendMinTimeArray = new const VTime *[numberOfWorkerThreads + 1];
-	//	logTwice = new unsigned int *[numberOfWorkerThreads + 1];
+
 	for (int i = 0; i < numberOfWorkerThreads + 1; i++) {
-		//	logTwice[i] = new unsigned int;
 		computeLVTStatus[i] = new bool(0);
 		*(computeLVTStatus[i]) = 1;
 		sendMinTimeArray[i] = NULL;
-		//	*(logTwice[i]) = 0;
 	}
+
 	//used 0, since manager object has been constructed using the master
 	pthread_key_create(&threadKey, NULL);
 	pthread_setspecific(threadKey, (void*) &masterID);
@@ -81,16 +83,16 @@ ThreadedTimeWarpSimulationManager::~ThreadedTimeWarpSimulationManager() {
 
 inline void ThreadedTimeWarpSimulationManager::sendMessage(KernelMessage *msg,
 		unsigned int destSimMgrId) {
-	messageBuffer->enqueue(msg);
+	messageBuffer->enqueue(msg, syncMechanism);
 }
 
 inline void ThreadedTimeWarpSimulationManager::sendPendingMessages() {
 	KernelMessage *messageToBeSent = NULL;
-	if ((messageToBeSent = messageBuffer->peekNext()) != NULL) {
+	if ((messageToBeSent = messageBuffer->peekNext(syncMechanism)) != NULL) {
 		utils::debug << "(" << mySimulationManagerID
 				<< " ) In Sending Module: " << endl;
 	}
-	while ((messageToBeSent = messageBuffer->dequeue()) != NULL) {
+	while ((messageToBeSent = messageBuffer->dequeue(syncMechanism)) != NULL) {
 		utils::debug << "(" << mySimulationManagerID << " ) Sending Message: "
 				<< endl;
 		myCommunicationManager->sendMessage(messageToBeSent,
@@ -279,6 +281,7 @@ void ThreadedTimeWarpSimulationManager::simulate(const VTime& simulateUntil) {
 	cout << "SimulationManager(" << mySimulationManagerID
 			<< "): Starting simulation - End time: " << simulateUntil << ")"
 			<< endl;
+	bool LTSFDestTemp = 1;
 	printObjectMaaping();
 	//Do ASSERT for all components of the kernel
 	bool pastSimulationCompleteTime = false; // Use it to terminate
@@ -317,6 +320,10 @@ void ThreadedTimeWarpSimulationManager::simulate(const VTime& simulateUntil) {
 				if (GVTTokenPending) {
 					if (updateLVTfromArray()) {
 						myGVTManager->calculateGVT();
+						//myEventSet->moveLP(2,(int)LTSFDestTemp);
+						//myEventSet->moveLP(4,(int)LTSFDestTemp);
+						//myEventSet->moveLP(6,(int)LTSFDestTemp);
+						//LTSFDestTemp = !LTSFDestTemp;
 						//Reset the GVT flag so the Worker thread can increase GVT Period
 						bool checkGVTOn = __sync_bool_compare_and_swap(
 								&checkGVT, true, false);
@@ -336,14 +343,19 @@ void ThreadedTimeWarpSimulationManager::simulate(const VTime& simulateUntil) {
 		}
 		//Clear message Buffer
 		sendPendingMessages();
-		if (!myEventSet->isScheduleQueueEmpty(0)) {
-			if (WorkerInformation::getStillBusyCount() < numberOfWorkerThreads) {
-				for (unsigned int threadIndex = 1; threadIndex
-						< numberOfWorkerThreads; threadIndex++) {
-					workerStatus[threadIndex]->resume();
+		// numberOfWorkerThreads includes manager thread for some reason...
+		if (WorkerInformation::getStillBusyCount() < numberOfWorkerThreads - 1) { // Check if any workers are still sleeping
+			//cout << WorkerInformation::getStillBusyCount() << "/" << numberOfWorkerThreads << endl;
+			for (unsigned int ltsfIndex = 0; ltsfIndex < scheduleQCount; ltsfIndex++) {
+				if (!myEventSet->isScheduleQueueEmpty(ltsfIndex)) { // Check if there are items in the scheduleQueue
+					//cout << "Resuming threads attached to ltsf " << ltsfIndex << endl;
+					for(unsigned int threadIndex = ltsfIndex; threadIndex < numberOfWorkerThreads - 1; threadIndex = threadIndex + scheduleQCount) {
+						workerStatus[threadIndex+1]->resume();
+					}
 				}
 			}
 		}
+
 		// Set Termination Manager according to busycount
 		if (WorkerInformation::getStillBusyCount() > 0) {
 			myTerminationManager->setStatusActive();
@@ -879,6 +891,7 @@ void ThreadedTimeWarpSimulationManager::receiveKernelMessage(KernelMessage *msg)
 
 void ThreadedTimeWarpSimulationManager::fossilCollect(
 		const VTime& fossilCollectTime) {
+  
 	ASSERT( localArrayOfSimObjPtrs != 0);
 	//Hard Coded ZERO, since this function is always called by the Master
 	int threadID = 0;
@@ -1054,12 +1067,6 @@ void ThreadedTimeWarpSimulationManager::configure(
 			configuration, this));
 	ASSERT( myGVTFactory != 0);
 	myGVTManager->configure(configuration);
-
-	// lets now set up and configure the fossil collection manager
-	//  const OptFossilCollManagerFactory *myFossilCollFactory = OptFossilCollManagerFactory::instance();
-	//  myFossilCollManager = dynamic_cast<OptFossilCollManager *>(myFossilCollFactory->allocate( configuration, this ));
-	//  ASSERT( myFossilCollManager != 0 );
-	//  myFossilCollManager->configure( configuration );
 
 	// lets now set up and configure the fossil collection manager
 	const OptFossilCollManagerFactory *myFossilCollFactory =
@@ -1305,16 +1312,9 @@ void ThreadedTimeWarpSimulationManager::printObjectMaaping() {
 	}
 }
 bool ThreadedTimeWarpSimulationManager::checkTermination() {
-	if (myEventSet->isScheduleQueueEmpty(0))
-		terminationCheckCount++;
-	else
-		terminationCheckCount = 0;
-
-	if (terminationCheckCount == 1)
-		return true;
-	else
-		return false;
+	return (myEventSet->isScheduleQueueEmpty(scheduleQCount));
 }
+
 void ThreadedTimeWarpSimulationManager::updateLVTArray(unsigned int threadId,
 		unsigned int objId) {
 	if (*(computeLVTStatus[threadId]) == 0) {
@@ -1542,7 +1542,7 @@ void ThreadedTimeWarpSimulationManager::releaseObjectLocksRecovery() {
 
 void ThreadedTimeWarpSimulationManager::clearMessageBuffer() {
 	KernelMessage *tobedeleted = NULL;
-	while ((tobedeleted = messageBuffer->dequeue()) != NULL) {
+	while ((tobedeleted = messageBuffer->dequeue(syncMechanism)) != NULL) {
 		utils::debug << "Deleted message from buffer." << endl;
 	}
 }

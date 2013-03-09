@@ -6,10 +6,11 @@
 #include <set>
 #include <list>
 #include "ThreadedTimeWarpEventSet.h"
-#include "AtomicState.h"
+#include "LockState.h"
 #include "NegativeEvent.h"
 #include "EventFunctors.h"
 #include "ThreadedTimeWarpSimulationManager.h"
+#include "ThreadedTimeWarpMultiSetLTSF.h"
 
 using std::multiset;
 using std::list;
@@ -36,8 +37,8 @@ public:
 	/** To get total pending message in the InputEventQueue for all Objects
 	 * @return Pending EventCount
 	 */
-	int getMessageCount(int threadId);
-	bool isScheduleQueueEmpty(int threadId);
+	////int getMessageCount(int threadId);
+	bool isScheduleQueueEmpty(int ltsfIndex);
 
 	/** Remove and return the next event in the event set.
 	 *  @return The removed event.
@@ -112,13 +113,13 @@ public:
 			int threadId);
 	void fossilCollect(const Event *, int threadId);
 
-	void getScheduleQueueLock(int threadId);
+	////void getScheduleQueueLock(int threadId);
 
-	void releaseScheduleQueueLock(int threadId);
+	////void releaseScheduleQueueLock(int threadId);
 
-	void getObjectLock(int threadId, int objId);
+	////void getObjectLock(int threadId, int objId);
 
-	void releaseObjectLock(int threadId, int objId);
+	////void releaseObjectLock(int threadId, int objId);
 
 	bool isObjectScheduled(int objId);
 
@@ -139,7 +140,7 @@ public:
 	}
 
 	//A Temp Function to find min of Schedule Queue, will be replaced by GVT calc Function
-	const VTime* nextEventToBeScheduledTime(int threadID);
+	const VTime* nextEventToBeScheduledTime(int threadId);
 
 	//Function to get Minimum of all Unprocessed and executing Events
 	const VTime &getMinimumOfAll(int threadId);
@@ -155,10 +156,12 @@ public:
 	// Release all the object locks during a catastrophic rollback.
 	void releaseObjectLocksRecovery();
 
+	void moveLP(int sourceObj, int destLTSF);
+
 private:
-	AtomicState** unprocessedQueueAtomicState;
-	AtomicState** processedQueueAtomicState;
-	AtomicState** removedQueueAtomicState;
+	LockState** unprocessedQueueLockState;
+	LockState** processedQueueLockState;
+	LockState** removedQueueLockState;
 
 	//	typedef std::multiset<const Event*, receiveTimeLessThanEventIdLessThan>* MS;
 	//	MS *unProcessedQueueArray;
@@ -183,22 +186,30 @@ private:
 	typedef multiset<const Event*, receiveTimeLessThanEventIdLessThan>::iterator
 			mIterate;
 	mIterate *multisetIterator;
-
-	//Lowest event position pointer
-	vector<multiset<const Event*, receiveTimeLessThanEventIdLessThan>::iterator>
-			lowestObjectPosition;
-	///Schedule Queue
-	multiset<const Event*, receiveTimeLessThanEventIdLessThan> *scheduleQueue;
-	///Schedule Queue Lock
-	AtomicState* scheduleQueueLock;
+	
 	///Object Status Lock
-	AtomicState** objectStatusLock;
+	////AtomicState** objectStatusLock;
 
 	/// The handle to the simulation manager.
 	ThreadedTimeWarpSimulationManager* mySimulationManager;
 
 	//number of objects associated with the manager
 	int objectCount;
+
+	//Specfiy the synchronization mechanism in the config
+	string syncMechanism;
+
+	//ScheduleQueues (LTSF)
+	ThreadedTimeWarpMultiSetLTSF** LTSF;
+	string scheduleQScheme;
+	int LTSFCount;
+
+	// ScheduleQueue (LTSF) Lookup Tables
+	ThreadedTimeWarpMultiSetLTSF** LTSFByObj;
+	ThreadedTimeWarpMultiSetLTSF** LTSFByThread;
+	int **LTSFObjId;
+	#define OBJID 0
+	#define LTSFOWNER 1
 };
 
 #endif /* ThreadedTIMEWARPMULTISET_H_ */

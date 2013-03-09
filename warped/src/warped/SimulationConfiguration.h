@@ -115,6 +115,8 @@ public:
 
 	bool schedulerTypeIs(const string &testValue) const;
 	const string getSchedulerType() const;
+	const string getScheduleQScheme() const;
+	bool getScheduleQCount(unsigned int &scheduleQCount) const;
 
 	bool stateManagerTypeIs(const string &testValue) const;
 	const string getStateManagerType() const;
@@ -122,6 +124,8 @@ public:
 	bool getStatePeriod(unsigned int &period) const;
 
 	bool getWorkerThreadCount(unsigned int &workerThreadCount) const;
+
+	const string getSyncMechanism() const;
 
 	bool getOptFossilCollPeriod(unsigned int &period);
 

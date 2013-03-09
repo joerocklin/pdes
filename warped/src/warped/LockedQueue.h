@@ -5,52 +5,103 @@
 
 #include<pthread.h>
 #include<deque>
+//#include <iostream>
+
 using std::deque;
 
 template<class element> class LockedQueue
 {
 private:
 	deque<element> myQueue;
+
 	pthread_spinlock_t spinlock;
+	pthread_mutex_t mutex;
+
 public:
 	LockedQueue()
 	{
 		pthread_spin_init(&spinlock, PTHREAD_PROCESS_PRIVATE );
+		pthread_mutex_init(&mutex, NULL);
 	}
 	~LockedQueue(){};
 
-	void enqueue(element e)
+	void enqueue(element e, const string syncMech)
 	{
-		pthread_spin_lock(&spinlock);
+		const string syncMechanism = "ATOMICLOCK";	/* MUTEX code section is not needed currently.
+								 * Code section not deleted keeping future use
+								 * in mind */
+
+		if(syncMechanism == "ATOMICLOCK") {
+			pthread_spin_lock(&spinlock);
+		} else {
+			pthread_mutex_lock(&mutex);
+		}
+
 		myQueue.push_back(e);
-		pthread_spin_unlock(&spinlock);
+
+		if(syncMechanism == "ATOMICLOCK") {
+			pthread_spin_unlock(&spinlock);
+		} else {
+			pthread_mutex_unlock(&mutex);
+		}
 	}
 
-	element dequeue()
+	element dequeue(const string syncMech)
 	{
+		const string syncMechanism = "ATOMICLOCK";	/* MUTEX code section is not needed currently.
+								 * Code section not deleted keeping future use
+					   			 * in mind */
+
 		element returnVal = 0;
 		if (!myQueue.empty())
 		{
-			pthread_spin_lock(&spinlock);
+			if(syncMechanism == "ATOMICLOCK") {
+				pthread_spin_lock(&spinlock);
+			} else {
+				pthread_mutex_lock(&mutex);
+			}
+
 			if (!myQueue.empty())
 			{
 				returnVal = myQueue.front();
 				myQueue.pop_front();
 			}
-			pthread_spin_unlock(&spinlock);
+
+			if(syncMechanism == "ATOMICLOCK") {
+				pthread_spin_unlock(&spinlock);
+			} else {
+				pthread_mutex_unlock(&mutex);
+			}
 		}
 		return returnVal;
 	}
 
-	element peekNext()
+	element peekNext(const string syncMech)
 	{
+		const string syncMechanism = "ATOMICLOCK";	/* MUTEX code section is not needed currently.
+								 * Code section not deleted keeping future use
+								 * in mind */
+
 		element returnVal = 0;
-		pthread_spin_lock(&spinlock);
+
+		if(syncMechanism == "ATOMICLOCK") {
+			pthread_spin_lock(&spinlock);
+		} else {
+			pthread_mutex_lock(&mutex);
+		}
+
 		if (!myQueue.empty())
 		{
 			returnVal = myQueue.front();
 		}
-		pthread_spin_unlock(&spinlock);
+
+		if(syncMechanism == "ATOMICLOCK")
+		{
+			pthread_spin_unlock(&spinlock);
+		} else {
+			pthread_mutex_unlock(&mutex);
+		}
+
 		return returnVal;
 	}
 };

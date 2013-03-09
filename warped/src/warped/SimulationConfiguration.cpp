@@ -56,6 +56,8 @@ public:
 
 	bool schedulerTypeIs(const string &testValue) const;
 	const string getSchedulerType() const;
+	const string getScheduleQScheme() const;
+	bool getScheduleQCount(unsigned int &scheduleQCount) const;
 
 	bool stateManagerTypeIs(const string &testValue) const;
 	const string getStateManagerType() const;
@@ -77,6 +79,7 @@ public:
 	const string getBinaryName() const;
 
 	bool getWorkerThreadCount(unsigned int &workerThreadCount) const;
+	const string getSyncMechanism() const;
 
 	Implementation() :
 		myOuterScope(0) {
@@ -337,6 +340,15 @@ const string SimulationConfiguration::getSchedulerType() const {
 	return _impl->getSchedulerType();
 }
 
+const string SimulationConfiguration::getScheduleQScheme() const {
+	return _impl->getScheduleQScheme();
+}
+
+bool SimulationConfiguration::getScheduleQCount(
+		unsigned int &scheduleQCount) const {
+	return _impl->getScheduleQCount(scheduleQCount);
+}
+
 bool SimulationConfiguration::stateManagerTypeIs(const string &testValue) const {
 	return _impl->stateManagerTypeIs(testValue);
 }
@@ -407,6 +419,10 @@ const string SimulationConfiguration::getBinaryName() const {
 bool SimulationConfiguration::getWorkerThreadCount(
 		unsigned int &workerThreadCount) const {
 	return _impl->getWorkerThreadCount(workerThreadCount);
+}
+
+const string SimulationConfiguration::getSyncMechanism() const {
+	return _impl->getSyncMechanism();
 }
 
 const ConfigurationChoice *
@@ -842,6 +858,31 @@ const string SimulationConfiguration::Implementation::getSchedulerType() const {
 	return retval;
 }
 
+const string SimulationConfiguration::Implementation::getScheduleQScheme() const {
+	string retval = "(none)";
+	if (getSchedulerScope() != 0) {
+		const ConfigurationChoice *type = getSchedulerScope()->findChoice(
+				"ScheduleQScheme");
+		if (type != 0) {
+			retval = stringToUpper(type->getStringValue());
+		}
+	}
+	return retval;
+}
+
+bool SimulationConfiguration::Implementation::getScheduleQCount(
+		unsigned int &scheduleQCount) const {
+	bool retval = false;
+	const ConfigurationScope *scope = getSchedulerScope();
+	if (scope != 0) {
+		if (scope->getIntValue("ScheduleQCount") != -1) {
+			scheduleQCount = scope->getIntValue("ScheduleQCount");
+			retval = true;
+		}
+	}
+	return retval;
+}
+
 bool SimulationConfiguration::Implementation::schedulerTypeIs(
 		const string &testValue) const {
 	return (stringToUpper(testValue) == stringToUpper(getSchedulerType()));
@@ -950,6 +991,18 @@ bool SimulationConfiguration::Implementation::getWorkerThreadCount(
 		if (scope->getIntValue("WorkerThreadCount") != -1) {
 			workerThreadCount = scope->getIntValue("WorkerThreadCount");
 			retval = true;
+		}
+	}
+	return retval;
+}
+
+const string SimulationConfiguration::Implementation::getSyncMechanism() const {
+	string retval = "(none)";
+	if (getThreadControlScope() != 0) {
+		const ConfigurationChoice *scope = getThreadControlScope()->findChoice(
+				"SyncMechanism");
+		if (scope != 0) {
+			retval = stringToUpper(scope->getStringValue());
 		}
 	}
 	return retval;
