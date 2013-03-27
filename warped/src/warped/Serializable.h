@@ -1,12 +1,14 @@
 #ifndef SERIALIZABLE_H
 #define SERIALIZABLE_H
 
-// See copyright notice in file Copyright in the root directory of this archive.
-
-class SerializedInstance;
 #include <string>
 using std::string;
 
+namespace warped {
+
+// See copyright notice in file Copyright in the root directory of this archive.
+
+class SerializedInstance;
 /**
    Serialization interface.  Serializable classes should derive from this
    class.  They need to define a unique type name and register with the
@@ -43,5 +45,8 @@ public:
 };
 
 inline Serializable::~Serializable(){}
+}
+
+using namespace warped;
 
 #endif

@@ -7,6 +7,7 @@
 
 using std::cerr;
 using std::endl;
+using namespace warped;
 
 TimeWarpDecentralizedEventSetFactory::TimeWarpDecentralizedEventSetFactory( TimeWarpSimulationManager * ){}
 

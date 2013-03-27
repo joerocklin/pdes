@@ -8,6 +8,7 @@
 #include <utils/ConfigurationChoice.h>
 #include <utils/ConfigurationValue.h>
 using std::cout;
+using namespace warped;
 
 Simulation::Simulation( Application *initApplication ) : myApplication( initApplication ){
 }

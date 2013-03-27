@@ -15,6 +15,8 @@
 #include <fstream>
 #include <time.h>
 
+namespace warped {
+
 class Application;
 class CommunicationManager;
 class GVTManager;
@@ -48,7 +50,7 @@ public:
 
 	/** Builder class */
 	friend class TimeWarpEventSetFactory;
-	friend class EventId;
+	friend class warped::EventId;
 
 	//@} // End of friend class declarations
 
@@ -585,5 +587,7 @@ protected:
 	//@} // End of Private Class Attributes of TimeWarpSimulationManager.
 
 };
+
+}
 
 #endif

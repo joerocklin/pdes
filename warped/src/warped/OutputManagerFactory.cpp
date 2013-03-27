@@ -19,6 +19,9 @@
 using std::cerr;
 using std::endl;
 
+using namespace warped;
+
+
 OutputManagerFactory::OutputManagerFactory() {
 }
 

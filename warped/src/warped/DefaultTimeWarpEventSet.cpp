@@ -11,6 +11,8 @@
 using std::cerr;
 using std::endl;
 
+using namespace warped;
+
 DefaultTimeWarpEventSet::DefaultTimeWarpEventSet( TimeWarpSimulationManager *initSimManager, 
                                                   bool usingOneAntiMsg ) :
   mySimulationManager( initSimManager ) {

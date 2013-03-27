@@ -7,6 +7,7 @@
 #include "TimeWarpSimulationManager.h"
 using std::cerr;
 using std::endl;
+using namespace warped;
 
 TimeWarpAppendQueue::TimeWarpAppendQueue( TimeWarpSimulationManager *initSimulationManager ) {
   senderQMap = new typeSenderMap;

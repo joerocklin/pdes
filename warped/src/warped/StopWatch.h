@@ -24,6 +24,8 @@
 #include <iostream>
 #include <sys/time.h>   // to get the system time
 
+namespace warped {
+
 class StopWatch{
 private :
   struct timeval start_tv; // has tv_sec and tv_usec elements (from sys/time.h)
@@ -72,5 +74,7 @@ public :
   double lapTime();
 
 }; // end of class StopWatch
+
+}
 
 #endif  // STOP_WATCH_H

@@ -6,6 +6,8 @@
 #include "Factory.h"
 #include "FactorySymbolTable.h"
 
+namespace warped {
+
 class ObjectStub;
 
 /** The FactoryImplementationBase base class.  
@@ -109,6 +111,8 @@ protected:
   FactoryImplementationBase *parentFactory;
   //@} // End of Protected Class Attributes of FactoryImplementationBase.
 };
+
+}
 
 #endif
   

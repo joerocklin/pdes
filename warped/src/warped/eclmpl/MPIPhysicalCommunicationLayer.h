@@ -6,6 +6,8 @@
 #include "PhysicalCommunicationLayer.h"
 #include "MPIMessage.h"
 
+namespace warped {
+
 /** The MPIPhysicalCommunicationLayer class.
 
 */
@@ -103,5 +105,7 @@ private:
   vector<MPIMessage> pendingSends;
   vector<MPIMessage> pendingReceives;
 };
+
+}
 
 #endif

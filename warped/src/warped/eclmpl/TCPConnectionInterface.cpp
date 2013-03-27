@@ -1,4 +1,5 @@
 #include "TCPConnectionInterface.h"
+using namespace warped;
 
 TCPConnectionInterface::TCPConnectionInterface(const unsigned int &mtuSize) {
   mtu = mtuSize;

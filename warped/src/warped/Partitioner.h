@@ -5,6 +5,8 @@
 
 #include <vector>
 using std::vector;
+
+namespace warped {
 class SimulationObject;
 class PartitionInfo;
 
@@ -22,5 +24,7 @@ public:
 protected:
   Partitioner(){}
 };
+
+}
 
 #endif

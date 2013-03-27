@@ -7,6 +7,8 @@
 using std::for_each;
 using std::unary_function;
 
+using namespace warped;
+
 SingleLinkedList::SingleLinkedList(){
   processedEvents = new vector<const Event *>;
 }

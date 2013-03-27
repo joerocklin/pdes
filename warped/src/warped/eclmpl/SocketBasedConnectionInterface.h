@@ -5,6 +5,8 @@
 #include "eclmplSocket.h"
 #include "eclmplConnectionInterfaceImplementationBase.h"
 
+namespace warped {
+
 class SocketBasedConnectionInterface : public eclmplConnectionInterfaceImplementationBase,
 				       public eclmplSocket {
 public:
@@ -39,5 +41,7 @@ protected:
 
   string hostName;
 };
+
+}
 
 #endif

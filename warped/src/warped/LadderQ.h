@@ -1,3 +1,4 @@
+
 // See copyright notice in file Copyright in the root directory of this archive.
 
 /*============================================================*/
@@ -23,6 +24,8 @@ using namespace std;
 #define MAX_TOP_NUM     3000
 #define MAX_RUNG_NUM      10
 #define MAX_BUCKET_NUM  1000
+
+namespace warped {
 
 class LadderQueue {
 
@@ -564,5 +567,7 @@ public:
 
 
 };
+
+}
 
 #endif /* LadderQueue_H_ */

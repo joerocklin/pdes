@@ -12,11 +12,14 @@
 #include <map>
 using namespace std;
 
+#include "Event.h"
+
+namespace warped {
+
 class TimeWarpSimulationManager;
 class SimulationObject;
 class VTime;
 class CommunicationManager;
-class Event;
 class NegativeEvent;
 class RestoreCkptMessage;
 class State;
@@ -219,5 +222,7 @@ protected:
 
   //@} // End of Protected Class Methods of OptFossilCollManager.
 };
+
+}
 
 #endif

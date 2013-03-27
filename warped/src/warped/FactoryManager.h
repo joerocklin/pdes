@@ -5,6 +5,8 @@
 
 #include "FactoryImplementationBase.h"
 
+namespace warped {
+
 /** The FactoryManager base class.  
 
     The FactoryManager base class is the class from where the user
@@ -54,5 +56,7 @@ protected:
 
    //@} // End of Protected Class Methods of FactoryManager.
 };
+
+}
 
 #endif

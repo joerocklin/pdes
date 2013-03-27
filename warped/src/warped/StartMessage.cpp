@@ -3,6 +3,8 @@
 #include "StartMessage.h"
 #include "DeserializerManager.h"
 
+using namespace warped;
+
 void 
 StartMessage::serialize( SerializedInstance *addTo ) const {
   return KernelMessage::serialize( addTo );

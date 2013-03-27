@@ -6,6 +6,8 @@
 using std::ofstream;
 using std::ifstream;
 
+using namespace warped;
+
 int FileQueue::standardOut = -1;
 
 FileQueue::FileQueue(const string &fileName) {

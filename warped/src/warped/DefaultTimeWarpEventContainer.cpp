@@ -10,6 +10,8 @@
 using std::cout;
 using std::endl;
 
+using namespace warped;
+
 class reclaimEvent: public std::unary_function<const Event *, void> {
 public:
   reclaimEvent(SimulationObject *initObject, const VTime &initCollectTime) :

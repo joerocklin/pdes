@@ -6,6 +6,7 @@
 #include "SimulationObject.h"
 using std::cerr;
 using std::endl;
+using namespace warped;
 
 TimeWarpSenderQueue::TimeWarpSenderQueue( TimeWarpSimulationManager *initSimulationManager ): 
   TimeWarpCentralizedEventSet() {

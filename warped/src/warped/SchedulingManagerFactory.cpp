@@ -19,6 +19,8 @@
 using std::cerr;
 using std::endl;
 
+using namespace warped;
+
 SchedulingManagerFactory::SchedulingManagerFactory(){}
 
 SchedulingManagerFactory::~SchedulingManagerFactory(){

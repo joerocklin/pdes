@@ -7,6 +7,8 @@
 #include "VTime.h"
 #include "SimulationObject.h"
 
+namespace warped {
+
 class LocalFossilCollectMessage : public LocalKernelMessage
 {
 private:
@@ -37,5 +39,7 @@ public:
 		return gvtTime;
 	}
 };
+
+}
 
 #endif /* LOCAL_FOSSIL_COLLECT_MESSAGE_H_ */

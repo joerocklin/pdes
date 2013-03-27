@@ -10,6 +10,8 @@
 
 using std::string;
 
+namespace warped {
+
 /** The KernelMessage class.
 
 Communication between the communication manager and the simulation kernel
@@ -132,5 +134,7 @@ protected:
 
   //@} // End of Protected Class Attributes of KernelMessage.
 };
+
+}
 
 #endif

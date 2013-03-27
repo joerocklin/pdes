@@ -7,6 +7,8 @@
 #include "Configurable.h"
 #include "EventId.h"
 
+namespace warped {
+
 class State;
 class SimulationObject;
 
@@ -102,5 +104,7 @@ protected:
 
    //@} // End of Protected Class Methods of StateManager.
 };
+
+}
 
 #endif

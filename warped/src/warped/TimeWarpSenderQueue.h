@@ -19,6 +19,8 @@ using std::unordered_map;
 using std::equal_to;
 using std::binary_function;
 
+namespace warped {
+
 class Event;
 class SimulationObject;
 class TimeWarpSimulationManager;
@@ -157,4 +159,7 @@ public:
   }
 };
 */
+
+}
+
 #endif 

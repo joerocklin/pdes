@@ -8,6 +8,8 @@
 #include "warped/SimulationObject.h"
 
 /** A default implementation of the Event interface. */
+namespace warped {
+  class SimulationObject;
 
 class DefaultEvent : public Event {
 public:
@@ -87,5 +89,6 @@ private:
   //@} // End of Event Private Class Methods.
 };
 
+}
 
 #endif

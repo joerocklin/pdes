@@ -7,6 +7,8 @@ using std::cout;
 using std::cerr;
 using std::endl;
 
+using namespace warped;
+
 InFileQueue::InFileQueue(const string& fileName )
   : inFileName( fileName ),
     lastFossilCollPos(0){

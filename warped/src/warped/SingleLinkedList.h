@@ -9,6 +9,8 @@
 
 using std::priority_queue;
 
+namespace warped {
+
 struct compareEvents {
   bool operator()( const Event *a, const Event *b ) {
     return ((a->getReceiveTime() == b->getReceiveTime()) ?
@@ -88,5 +90,7 @@ private:
 
   //@} // End of  Private Class Attributes of SingleLinkedList
 };
+
+}
 
 #endif

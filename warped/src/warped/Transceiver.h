@@ -5,10 +5,10 @@
 
 #include "warped.h"
 
-class SerializedInstance;
-
 #define INTERNAL_BUFFER_SIZE 50000
 #define MAXIMUM_AGE 10
+
+namespace warped {
 
 enum AggregationMode { AGGREGATING_MODE, AGGRESSIVE_SEND, AGGREGATION_ERROR };
 
@@ -62,5 +62,7 @@ private:
   MessageManager* messageManagerHandle;
   PhysicalCommunicationLayer *commPhyLib;
 };
+
+}
 
 #endif

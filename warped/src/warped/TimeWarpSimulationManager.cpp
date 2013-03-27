@@ -34,6 +34,7 @@
 #include <sstream>
 #include <time.h>
 using std::istringstream;
+using namespace warped;
 
 TimeWarpSimulationManager::TimeWarpSimulationManager(Application *initApplication) :
     SimulationManagerImplementationBase(),
@@ -618,8 +619,8 @@ void TimeWarpSimulationManager::cancelLocalEvents(const vector<
 	if (!inRecovery) {
 		for (vector<const NegativeEvent *>::const_iterator i =
 				eventsToCancel.begin(); i < eventsToCancel.end(); i++) {
-			utils::debug << mySimulationManagerID << " - Cancelling: " << *(*i)
-					<< "\n";
+			utils::debug << mySimulationManagerID << " - Cancelling: " << *(*i) 
+        << "\n";
 			ASSERT( (*i)->getReceiveTime() >= receiver->getSimulationTime() );
 			myEventSet->handleAntiMessage(receiver, *i);
 		}

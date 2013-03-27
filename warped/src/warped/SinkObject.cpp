@@ -4,6 +4,8 @@
 using std::cerr;
 using std::endl;
 
+using namespace warped;
+
 SinkObject::SinkObject(const VTime& starttime):startTime(starttime),sinkFinished(false){
 }
 

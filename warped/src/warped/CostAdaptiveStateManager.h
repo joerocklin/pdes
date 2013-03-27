@@ -5,6 +5,8 @@
 
 #include "AdaptiveStateManagerBase.h"
 
+namespace warped {
+  
 // The maximum period.
 const unsigned int maxDefaultInterval = 30;
 
@@ -84,5 +86,7 @@ protected:
 
    //@} // end of Private Class Attributes
 };
+
+}
 
 #endif

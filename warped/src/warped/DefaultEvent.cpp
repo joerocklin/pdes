@@ -4,6 +4,8 @@
 #include "SerializedInstance.h"
 #include "EventId.h"
 
+using namespace warped;
+
 DefaultEvent::~DefaultEvent(){
   delete sendTime;
   delete receiveTime;

@@ -8,6 +8,8 @@
 #include "SimulationManager.h"
 #include "Configurer.h"
 
+namespace warped {
+
 /** The GVTManagerFactory class.
 
     This is the  factory interface for the various GVT
@@ -50,5 +52,7 @@ private:
   //@} // End of  Private Class Attributes of GVTManagerFactory.
    
 };
+
+}
 
 #endif

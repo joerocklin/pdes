@@ -4,6 +4,8 @@
 #include "RoundRobinPartitioner.h"
 #include "warped.h"
 
+using namespace warped;
+
 RoundRobinPartitioner::RoundRobinPartitioner(){}
 
 const PartitionInfo *

@@ -6,6 +6,8 @@
 #include "warped.h"
 #include <string.h>
 
+namespace warped {
+
 template <class Element>
 class StackOfPtr {
 
@@ -54,5 +56,7 @@ public:
     return ptrArray[ptrArrayIndex-1];
   }
 };
+
+}
 
 #endif //__STACKOFPTR_HH__

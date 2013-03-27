@@ -7,6 +7,8 @@
 #include "EventId.h"
 #include "DeserializerManager.h"
 
+using namespace warped;
+
 /*void StragglerEvent::registerDeserializer() {
 	DeserializerManager::instance()->registerDeserializer(
 			getStragglerEventDataType(), &StragglerEvent::deserialize);

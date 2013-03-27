@@ -6,6 +6,8 @@
 #include "ThreadedTimeWarpSimulationManager.h"
 #include "Event.h"
 
+using namespace warped;
+
 ThreadedAggressiveOutputManager::ThreadedAggressiveOutputManager(
 		ThreadedTimeWarpSimulationManager *simMgr) :
 	ThreadedOutputManagerImplementationBase(simMgr) {

@@ -31,6 +31,8 @@
 #include "ThreadedMatternGVTManager.h"
 #include "SimulationConfiguration.h"
 
+using namespace warped;
+
 int WorkerInformation::globalStillBusyCount = 0;
 bool WorkerInformation::workRemaining = true;
 

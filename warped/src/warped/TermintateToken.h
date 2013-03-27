@@ -3,6 +3,8 @@
 
 // See copyright notice in file Copyright in the root directory of this archive.
 
+namespace warped {
+
 /**
    This is the class defining the termination token that gets passed
    around.  Essentially, it has a color and a terminator.  
@@ -24,5 +26,7 @@ private:
   TokenColor myColor;
   unsigned int myTerminator;
 };
+
+}
 
 #endif

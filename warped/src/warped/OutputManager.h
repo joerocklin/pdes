@@ -8,7 +8,9 @@
 #include <fstream>
 using std::ofstream;
 
-class Event;
+#include "Event.h"
+namespace warped {
+
 class SimulationObject;
 
 /** The OutputManager class.
@@ -114,5 +116,7 @@ protected:
   
   //@} // End of Protected Class Methods of OutputManager.
 };
+
+}
 
 #endif

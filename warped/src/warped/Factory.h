@@ -8,6 +8,8 @@
 
 using std::string;
 
+namespace warped {
+
 /** The Factory abstract base class.  
 
     All classes related to the object factory subsystem must be
@@ -54,5 +56,7 @@ protected:
 
    //@} // End of Protected Class Methods of Factory.
 };
+
+}
 
 #endif

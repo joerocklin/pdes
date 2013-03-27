@@ -7,6 +7,7 @@
 #include <utils/Debug.h>
 
 using namespace std;
+using namespace warped;
 
 SharedDVFSManager::SharedDVFSManager(TimeWarpSimulationManager* simMgr,
                                  int measurementPeriod,

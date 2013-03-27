@@ -8,6 +8,8 @@
 #include "controlkit/FIRFilter.h"
 #include "controlkit/IIRFilter.h"
 
+namespace warped {
+
 /** The ThreadedCostAdaptiveStateManager class.
 
  This class is an implementation of the adaptive state manager base.
@@ -115,5 +117,7 @@ protected:
 
 	//@} // end of Private Class Attributes
 };
+
+}
 
 #endif

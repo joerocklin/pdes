@@ -15,6 +15,8 @@ using std::cout;
 using std::cerr;
 using std::endl;
 
+using namespace warped;
+
 MatternGVTManager::MatternGVTManager(TimeWarpSimulationManager *simMgr,
                                      unsigned int period) :
   GVTManagerImplementationBase(simMgr, period),

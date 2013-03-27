@@ -4,6 +4,8 @@
 #include <iostream>
 using std::cout;
 using std::endl;
+using namespace warped;
+
 #define ONLY_CHECK_PHYSICAL_LAYER_ON_EMPTY_QUEUE
 const int maxBuf = 65535;
 const int explicitAckLimit = 100;

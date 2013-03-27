@@ -5,6 +5,8 @@
 #include "Event.h"
 #include "EventFunctors.h"
 
+using namespace warped;
+
 DynamicOutputManager::DynamicOutputManager( TimeWarpSimulationManager *simMgr, bool useThirdThreshold ) :
   LazyOutputManager( simMgr ),
   curCancelMode( simMgr->getNumberOfSimulationObjects(), AGGRESSIVE ),

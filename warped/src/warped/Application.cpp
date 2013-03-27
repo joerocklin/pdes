@@ -4,6 +4,8 @@
 #include "FactoryManager.h"
 #include "ObjectStub.h"
 
+using namespace warped;
+
 // This file provides a default definition of the createObjects() method
 // that must be defined by each application that uses warped.
 

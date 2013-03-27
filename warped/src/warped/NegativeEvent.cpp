@@ -8,6 +8,8 @@
 #include "NegativeEvent.h"
 //#include "OptFossilCollManager.h"
 
+using namespace warped;
+
 void
 NegativeEvent::serialize( SerializedInstance *addTo ) const {
   addTo->addSerializable( sendTime );
@@ -50,7 +52,7 @@ NegativeEvent::registerDeserializer(){
 }
 
 ostream&
-operator<<(ostream& os, const NegativeEvent& event) {
+warped::operator<<(ostream& os, const NegativeEvent& event) {
    os << "sender: " << event.getSender() 
       << " receiver: " << event.getReceiver()
       << " sendTime: " << event.getSendTime()

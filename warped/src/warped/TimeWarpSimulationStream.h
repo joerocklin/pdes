@@ -14,6 +14,8 @@ using std::ostringstream;
 using std::ofstream;
 using std::ifstream;
 
+namespace warped {
+
 class TimeWarpSimulationStream : public SimulationStream {
   friend class TimeWarpSimulationManager;
 public:
@@ -116,5 +118,7 @@ private:
    //@} // End of Private Class attributes of TimeWarpSimulationStream
 
 };
+
+}
 
 #endif

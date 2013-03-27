@@ -11,6 +11,8 @@ using std::priority_queue;
 using std::vector;
 using std::deque;
 
+namespace warped {
+
 /** The eclmplReliablePhysicalCommunicationLayer class.
 
 */
@@ -144,5 +146,7 @@ protected:
 
   //@} // End of Protected Class Attributes of eclmplReliablePhysicalCommunicationLayer.
 };
+
+}
 
 #endif

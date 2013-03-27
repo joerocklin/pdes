@@ -9,13 +9,12 @@
 #include "SimulationConfiguration.h"
 #include "SchedulingData.h"
 
-
 #include "ThreadedTimeWarpMultiSet.h"
 #include "ThreadedTimeWarpSimulationManager.h"
 
-
 using std::cerr;
 using std::endl;
+using namespace warped;
 
 Configurable *
 TimeWarpEventSetFactory::allocate(SimulationConfiguration &configuration,

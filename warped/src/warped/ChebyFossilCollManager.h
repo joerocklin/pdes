@@ -5,6 +5,8 @@
 
 #include "OptFossilCollManager.h"
 
+namespace warped {
+
 /** The ChebyFossilCollManager class.
 
     This class implements the decision function using the 
@@ -65,6 +67,8 @@ protected:
 
   //@} // End of Protected Class Methods of ChebyFossilCollManager.
 };
+
+}
 
 #endif
 

@@ -3,6 +3,8 @@
 
 #include "eclmplCommonInclude.h"
 
+namespace warped {
+
 class eclmplContactInfo {
 public:
   eclmplContactInfo() : providedById(0), intendedForId(0) {}
@@ -32,5 +34,7 @@ private:
   unsigned int intendedForId;
   vector<string> contactArgs;
 };
+
+}
 
 #endif

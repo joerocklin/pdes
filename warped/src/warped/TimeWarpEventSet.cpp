@@ -3,5 +3,6 @@
 #include "TimeWarpEventSet.h"
 using std::cerr;
 using std::endl;
+using namespace warped;
 
 TimeWarpEventSet::~TimeWarpEventSet(){}

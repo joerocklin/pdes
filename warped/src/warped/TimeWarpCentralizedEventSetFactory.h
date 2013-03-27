@@ -6,6 +6,8 @@
 #include "SimulationManager.h"
 #include "TimeWarpEventSetFactory.h"
 
+namespace warped {
+  
 class Event;
 class TimeWarpCentralizedEventSet;
 
@@ -53,5 +55,7 @@ protected:
 
   //@} // End of Protected Class Attributes of EventSetAbstractFactory.
 };
+
+}
 
 #endif //ifdef TIME_WARP_CENTRALIZED_EVENT_SET_FACTORY_H

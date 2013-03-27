@@ -7,6 +7,7 @@
 #include "SchedulingData.h"
 using std::cerr;
 using std::endl;
+using namespace warped;
 
 Configurable *
 TimeWarpSimulationObjectQueueFactory::allocate( SimulationConfiguration &configuration,

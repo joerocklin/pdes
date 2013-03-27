@@ -3,6 +3,8 @@
 #include "MatternGVTMessage.h"
 #include "DeserializerManager.h"
 
+using namespace warped;
+
 const string &
 MatternGVTMessage::getMatternGVTMessageType(){
   static string matternGVTMessageType = "MatternGVTMessage";

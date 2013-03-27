@@ -3,6 +3,8 @@
 #include "EventMessageBase.h"
 #include "Event.h"
 
+using namespace warped;
+
 void 
 EventMessageBase::serialize( SerializedInstance *addTo ) const {
   KernelMessage::serialize( addTo );

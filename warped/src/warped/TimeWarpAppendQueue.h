@@ -18,6 +18,8 @@ using std::unordered_map;
 
 using std::equal_to;
 
+namespace warped {
+
 class Event;
 class SimulationObject;
 class TimeWarpSimulationManager;
@@ -120,4 +122,7 @@ private:
   bool popHeapFlag;
   TimeWarpSimulationManager *mySimulationManager;
 };
+
+}
+
 #endif 

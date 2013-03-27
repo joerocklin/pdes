@@ -6,6 +6,7 @@
 #include "warped.h"
 #include "Configurable.h"
 
+namespace warped {
 class SimulationManager;
 
 /** The ConfigurationManager abstract base class.
@@ -38,4 +39,7 @@ protected:
    //@} // End of Protected Class Methods of ConfigurationManager
    
 };
+
+}
+
 #endif

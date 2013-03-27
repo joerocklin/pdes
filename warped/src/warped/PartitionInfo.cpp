@@ -2,6 +2,8 @@
 
 #include "PartitionInfo.h"
 
+using namespace warped;
+
 PartitionInfo::PartitionInfo( unsigned int numPartitions ) :
   myNumberOfPartitions( numPartitions ){}
 

@@ -30,6 +30,8 @@
 #include <utils/ArgumentParser.h>
 #include <iostream>
 
+using namespace warped;
+
 warped64_t 
 getWarped64Max(){
   return _WARPED64MAX;

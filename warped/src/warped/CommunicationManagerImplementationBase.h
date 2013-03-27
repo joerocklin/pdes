@@ -5,6 +5,9 @@
 
 #include "warped.h"
 #include "CommunicationManager.h"
+
+namespace warped {
+  
 class TimeWarpSimulationManager;
 
 /** The CommunicationManagerImplementationBase class.
@@ -110,5 +113,7 @@ private:
   //@} // End of Private Class Methods of CommunicationManagerImplBase
    
 };
+
+}
 
 #endif

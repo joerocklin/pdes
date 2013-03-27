@@ -5,6 +5,8 @@
 #include "Event.h"
 #include "EventFunctors.h"
 
+using namespace warped;
+
 LazyOutputManager::LazyOutputManager( TimeWarpSimulationManager *simMgr ) :
   OutputManagerImplementationBase( simMgr ){
   for(int i = 0; i < simMgr->getNumberOfSimulationObjects(); i++){

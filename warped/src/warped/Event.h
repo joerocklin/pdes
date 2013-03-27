@@ -6,9 +6,11 @@
 #include "warped.h"
 #include <warped/Serializable.h>
 
-class VTime;
-class EventId;
 //class OptFossilCollManager;
+
+namespace warped {
+  class EventId;
+  class VTime;
 
 /** The abstract base class Event.  
 
@@ -28,7 +30,6 @@ public:
   //@{
 
   friend class TimeWarpSimulationManager;
-  friend class NegativeEvent;
 
   /// Destructor.  Overriders must define a destructor.
   virtual ~Event() = 0;
@@ -102,10 +103,10 @@ public:
   void serialize( SerializedInstance *addTo ) const;
    
   /// Overloaded operator <<
-  friend ostream& operator<<(ostream& os, const Event& event);
+  friend ostream& operator<<(ostream& os, const warped::Event& event);
 
   /// Overloaded operator ==
-  friend bool operator==( const Event &eve1, const Event &eve2 );
+  friend bool operator==( const warped::Event &eve1, const Event &eve2 );
 
   /// Overload operator new.
   void *operator new(size_t);
@@ -127,5 +128,6 @@ private:
   //static bool usingOptFossilCollMan;
 };
 
+}
 
 #endif

@@ -3,5 +3,6 @@
 #include "ThreadedTimeWarpEventSet.h"
 using std::cerr;
 using std::endl;
+using namespace warped;
 
 ThreadedTimeWarpEventSet::~ThreadedTimeWarpEventSet(){}

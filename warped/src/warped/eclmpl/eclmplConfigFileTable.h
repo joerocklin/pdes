@@ -4,7 +4,8 @@
 #include "eclmplCommonInclude.h"
 
 //typedef struct eclmplConfigFileTableEntry vector<string>;
-
+namespace warped {
+  
 class eclmplConfigFileTable {
 public:
   eclmplConfigFileTable() {}
@@ -36,5 +37,7 @@ public:
 private:
   vector<vector<string> > configTable; // Note space between > and >.
 };
+
+}
 
 #endif

@@ -3,7 +3,7 @@
 #include "warped/FileManager.h"
 #include "warped/SequentialFileManager.h"
 
-namespace warped {
+using namespace warped;
 
 FileManager &
 FileManager::instance(){
@@ -24,6 +24,4 @@ FileManager::initSingleton(){
     retval = new SequentialFileManager();
   }
   return retval;
-}
-
 }

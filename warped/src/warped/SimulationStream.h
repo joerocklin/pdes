@@ -9,6 +9,8 @@
 
 using std::fstream;
 
+namespace warped {
+  
 class SimulationStream : public fstream {
 public:
 
@@ -43,5 +45,7 @@ protected:
 };
 
 extern ostream& nl(ostream& os);
+
+}
 
 #endif

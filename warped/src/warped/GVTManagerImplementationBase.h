@@ -6,6 +6,8 @@
 #include "warped.h"
 #include "GVTManager.h"
 
+namespace warped {
+
 class TimeWarpSimulationManager;
 class ObjectID;
 /** The GVTManagerImplementationBase base class.
@@ -91,5 +93,8 @@ private:
    
   //@} // End of Protected Class Methods of GVTManagerImplementationBase.
 };
+
+}
+
 #endif
 

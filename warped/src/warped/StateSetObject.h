@@ -9,6 +9,8 @@
 #include "EventId.h"
 #include "ObjectID.h"
 
+namespace warped {
+
 /** The StateSetObject Class.
 
     This class is used for encapsulating events in the State
@@ -102,5 +104,7 @@ protected:
    //@} // End of Protected Class Attributes of StateSetObject.
 
 };
+
+}
 
 #endif

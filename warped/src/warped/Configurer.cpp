@@ -2,3 +2,4 @@
 
 #include "Configurer.h"
 
+using namespace warped;

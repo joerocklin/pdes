@@ -6,6 +6,9 @@
 #include "warped.h"
 #include "Configurable.h"
 #include "EventId.h"
+
+namespace warped {
+  
 class Event;
 class NegativeEvent;
 class SimulationObject;
@@ -183,5 +186,7 @@ protected:
 
 	//@} // End of Protected Class Methods of ThreadedTimeWarpEventSet.
 };
+
+}
 
 #endif /* ThreadedTIMEWARPEVENTSET_H_ */

@@ -9,6 +9,7 @@
 #include <utils/Debug.h>
 
 using namespace std;
+using namespace warped;
 
 DVFSManagerImplementationBase::DVFSManagerImplementationBase(
     TimeWarpSimulationManager* simMgr,
@@ -296,7 +297,7 @@ DVFSManagerImplementationBase::toString() {
   return ss.str();
 }
 
-ostream& operator<<(ostream& out, DVFSManager& dvfsm) {
+ostream& warped::operator<<(ostream& out, DVFSManager& dvfsm) {
   out << dvfsm.toString();
   return out;
 }

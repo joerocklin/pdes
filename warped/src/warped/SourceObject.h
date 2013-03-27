@@ -6,6 +6,8 @@
 #include "warped.h"
 #include "SimulationObject.h"
 
+namespace warped {
+  
 /** The class SourceObject.
 
     In a typical discrete-event simulation, very often there are certain
@@ -122,5 +124,7 @@ private:
 
   //@} // End of Private Class Methods of SourceObject.
 };
+
+}
 
 #endif

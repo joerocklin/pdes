@@ -10,6 +10,7 @@
 using std::cout;
 using std::cerr;
 using std::endl;
+using namespace warped;
 
 TimeWarpMultiSet::TimeWarpMultiSet( TimeWarpSimulationManager *initSimulationManager )
   :myNumCommittedEvents(0)

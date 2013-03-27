@@ -12,3 +12,5 @@ missing
 utils/scan-docs
 warped/scan-docs
 *.plist
+
+.AppleDouble/

@@ -15,6 +15,8 @@ using std::cerr;
 using std::cout;
 using std::endl;
 
+namespace warped {
+
 /** The FileQueue class.
 
     The FileQueue class represents a queue of output strings that will
@@ -105,4 +107,7 @@ private:
    //@} // End of Private Class Attributes of FileQueue.
    
 };
+
+}
+
 #endif

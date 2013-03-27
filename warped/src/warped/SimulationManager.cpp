@@ -2,6 +2,8 @@
 
 #include "SimulationManager.h"
 
+using namespace warped;
+
 SimulationManager::SimulationManager(){}
 
 SimulationManager::~SimulationManager(){}

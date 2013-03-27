@@ -6,7 +6,8 @@
 #include "warped.h"
 #include "Configurer.h"
 
-class Event;
+namespace warped {
+
 class SimulationObject;
 class OutputManager;
 
@@ -61,5 +62,7 @@ protected:
 
   //@} // End of Private Class Attributes of OutputManagerFactory.
 };
+
+}
 
 #endif

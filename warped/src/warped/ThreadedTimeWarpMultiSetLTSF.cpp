@@ -1,5 +1,7 @@
 #include "ThreadedTimeWarpMultiSetLTSF.h"
 
+using namespace warped;
+
 ThreadedTimeWarpMultiSetLTSF::ThreadedTimeWarpMultiSetLTSF(int inObjectCount, int LTSFCountVal, const string syncMech, const string scheQScheme) {
 	objectCount = inObjectCount;
 

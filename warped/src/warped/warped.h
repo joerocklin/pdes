@@ -78,7 +78,7 @@ extern ostream *wout, *werr;
 #endif
 
 
-
+namespace warped {
 // Define the type of the tag used to seralize and deSerialize stuff
 typedef int SerializationTag;
 
@@ -200,4 +200,7 @@ extern "C" {
   }
 }
 #endif
+
+}
+
 #endif

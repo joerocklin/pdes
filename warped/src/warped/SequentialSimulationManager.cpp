@@ -13,6 +13,8 @@ using std::cerr;
 using std::cout;
 using std::endl;
 
+using namespace warped;
+
 SequentialSimulationManager::SequentialSimulationManager( Application *initApplication ):
   SimulationManagerImplementationBase(),
   simulationTime( initApplication->getZero().clone() ), 

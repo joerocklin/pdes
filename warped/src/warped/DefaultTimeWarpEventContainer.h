@@ -12,6 +12,8 @@ using std::deque;
 using std::vector;
 using std::endl;
 
+namespace warped {
+
 class SimulationObject;
 class NegativeEvent;
 
@@ -128,5 +130,7 @@ protected:
     deque<const NegativeEvent *> negativeEvents;
     enum SortStatus { SORTED, UNSORTED } sortStatus;
 };
+
+}
 
 #endif /* DEFAULTTIMEWARPEVENTCONTAINER_H_ */

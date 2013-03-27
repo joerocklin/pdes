@@ -11,6 +11,7 @@
 #include "ThreadedTimeWarpSimulationManager.h"
 using std::cout;
 using std::endl;
+using namespace warped;
 
 TimeWarpConfigurationManager::TimeWarpConfigurationManager(
 		const vector<string> &arguments, Application *initApplication) :

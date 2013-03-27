@@ -8,6 +8,8 @@
 #include "eclmplTimer.h"
 #include "UDPConnectionInterface.h"
 
+namespace warped {
+
 /** The UDPSelectPhysicalCommunicationLayer class.
 
 */
@@ -45,5 +47,7 @@ protected:
 
   //@} // End of Protected Class Attributes of UDPSelectPhysicalCommunicationLayer.
 };
+
+}
 
 #endif

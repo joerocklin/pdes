@@ -9,6 +9,8 @@
 #include "SimulationManager.h"
 #include "Configurer.h"
 
+namespace warped {
+
 class State;
 class SimulationObject;
 
@@ -55,6 +57,8 @@ private:
   //@} // End of Private Class Attributes of StateManagerFactory.
    
 };
+
+}
 
 #endif
 

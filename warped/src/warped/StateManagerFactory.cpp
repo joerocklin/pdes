@@ -12,6 +12,8 @@
 #include "ThreadedTimeWarpSimulationManager.h"
 #include <utils/Debug.h>
 
+using namespace warped;
+
 StateManagerFactory::StateManagerFactory() {
 }
 

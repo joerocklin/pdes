@@ -10,6 +10,8 @@
 #include <ctime>
 #include <unistd.h>
 
+using namespace warped;
+
 DistributedDVFSManager::DistributedDVFSManager(TimeWarpSimulationManager* simMgr,
                                            int measurementPeriod,
                                            int firsize,

@@ -7,6 +7,8 @@
 #include "CommunicationManagerImplementationBase.h"
 #include "MessageManager.h"
 
+namespace warped {
+
 /** The MsgAggregatingCommunicationManager class.
 
 As the name implies, this is the communication manager
@@ -82,5 +84,7 @@ private:
 
   //@} // End of Public Class Methods of MsgAggregatingCommunicationManager
 };
+
+}
 
 #endif

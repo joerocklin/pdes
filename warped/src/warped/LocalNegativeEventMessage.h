@@ -9,6 +9,8 @@
 #include "Event.h"
 #include <vector>
 
+namespace warped {
+
 class LocalNegativeEventMessage : public LocalKernelMessage
 {
 private:
@@ -28,5 +30,7 @@ public:
 		return *negativeEvents;
 	}
 };
+
+}
 
 #endif /* LOCALNEGATIVEEVENTMESSAGE_H_ */

@@ -7,6 +7,8 @@
 #include "State.h"
 #include "SetObject.h"
 
+namespace warped {
+
 /** The InputSetObject Class.
 
     This class is used for encapsulating events in the Input
@@ -87,5 +89,7 @@ protected:
    //@} // End of Protected Class Attributes of InputSetObject.
 
 };
+
+}
 
 #endif

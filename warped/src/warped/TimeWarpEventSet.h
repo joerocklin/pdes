@@ -6,9 +6,13 @@
 #include "warped.h"
 #include "Configurable.h"
 #include "EventId.h"
-class Event;
-class NegativeEvent;
-class SimulationObject;
+
+#include "Event.h"
+#include "NegativeEvent.h"
+#include "SimulationObject.h"
+
+namespace warped {
+  
 class TimeWarpEventSetFactory;
 
 /** The TimeWarpEventSet abstract base class.
@@ -173,5 +177,7 @@ protected:
 
   //@} // End of Protected Class Methods of TimeWarpEventSet.
 };
+
+}
 
 #endif

@@ -6,6 +6,8 @@
 #include "GVTManagerImplementationBase.h"
 #include "MatternObjectRecord.h"
 
+namespace warped {
+
 class SchedulingManager;
 class CommunicationManager;
 class ObjectID;
@@ -99,5 +101,7 @@ protected:
   //@} // End of Protected Class Methods of MatternGVTManager.
 
 };
+
+}
 
 #endif

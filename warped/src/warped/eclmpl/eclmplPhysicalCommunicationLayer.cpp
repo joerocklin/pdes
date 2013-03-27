@@ -2,6 +2,8 @@
 #include "warped/SerializedInstance.h" 
 #include <fstream>
 
+using namespace warped;
+
 #define ONLY_CHECK_PHYSICAL_LAYER_ON_EMPTY_QUEUE
 const int maxBuf = 65535;
 

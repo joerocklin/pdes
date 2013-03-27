@@ -4,6 +4,7 @@
 #include "MsgAggregatingCommunicationManager.h"
 using std::cerr;
 using std::endl;
+using namespace warped;
 
 // The first position in the buffer will always be how many messages are
 // being sent. Therefore, when resetting the values of currentPosition

@@ -2,6 +2,8 @@
 
 #include "CentralizedEventSetSchedulingManager.h"
 
+using namespace warped;
+
 CentralizedEventSetSchedulingManager::CentralizedEventSetSchedulingManager(SimulationManager* simMgr) 
   : mySimulationManager(simMgr), 
     myEventSetHandle(NULL), 

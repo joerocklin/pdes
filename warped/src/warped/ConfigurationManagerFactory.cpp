@@ -10,6 +10,8 @@ using std::cerr;
 using utils::debug;
 using std::endl;
 
+using namespace warped;
+
 const ConfigurationManagerFactory *
 ConfigurationManagerFactory::instance() {
 	static const ConfigurationManagerFactory *retval =

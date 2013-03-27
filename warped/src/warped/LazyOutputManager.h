@@ -7,7 +7,10 @@
 #include "warped.h"
 #include "OutputManagerImplementationBase.h"
 
-class Event;
+#include "Event.h"
+
+namespace warped {
+
 class SimulationObject;
 class OutputManager;
 
@@ -168,5 +171,7 @@ protected:
 
   //@} // End of Protected Class Methods of LazyOutputManager.
 };
+
+}
 
 #endif

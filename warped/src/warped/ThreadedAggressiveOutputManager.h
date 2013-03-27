@@ -7,6 +7,8 @@
 #include "warped.h"
 #include "ThreadedOutputManagerImplementationBase.h"
 
+namespace warped {
+
 class Event;
 class SimulationObject;
 class OutputManager;
@@ -46,5 +48,7 @@ public:
 	//@} // End of Public Class Methods of ThreadedAggressiveOutputManager.
 
 };
+
+}
 
 #endif /* THREADEDAGGRESSIVEOUTPUTMANAGER_H_ */

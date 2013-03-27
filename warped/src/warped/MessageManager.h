@@ -8,6 +8,8 @@
 #include "KernelMessage.h"
 #include "CommunicationManager.h"
 
+namespace warped {
+
 class SimulationManager;
 
 enum AggregationReceiveCriteria { RECEIVE, NO_NEED_TO_RECEIVE};
@@ -246,7 +248,9 @@ private:
 
 };
 
-extern ostream& operator<<(ostream &os, const AggregationSendCriteria& asc);
+}
+
+extern ostream& operator<<(ostream &os, const warped::AggregationSendCriteria& asc);
 
 #endif 
 

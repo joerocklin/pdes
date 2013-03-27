@@ -2,5 +2,7 @@
 
 #include "FactoryManager.h"
 
+using namespace warped;
+
 FactoryManager::FactoryManager(FactoryImplementationBase *parent) : FactoryImplementationBase(parent){
 }

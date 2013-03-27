@@ -6,6 +6,8 @@
 #include "warped.h"
 #include "SimulationObject.h"
 
+namespace warped {
+  
 /** The class SinkObject.
 
     In a typical discrete-event simulation, very often there are certain
@@ -100,5 +102,7 @@ private:
   void sendEvent(const Event* event);
   //@} // End of Private Class Methods of SinkObject.
 };
+
+}
 
 #endif

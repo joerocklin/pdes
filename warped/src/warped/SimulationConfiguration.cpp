@@ -10,6 +10,8 @@
 #include <cstdlib>
 #include <cstdio>
 
+using namespace warped;
+
 class SimulationConfiguration::Implementation {
 public:
 	const vector<string> &getArguments() {

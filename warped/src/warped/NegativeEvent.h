@@ -8,6 +8,7 @@
 #include "Event.h"
 #include "EventId.h"
 
+namespace warped {
 /** The NegativeEvent class.
 
     This class implements the Negative Event. It attempts to contain the minimum 
@@ -103,7 +104,7 @@ public:
   
   static void registerDeserializer();
 
-  friend ostream& operator<<(ostream& os, const NegativeEvent& event);
+  friend ostream& operator<<(ostream& os, const warped::NegativeEvent& event);
 
   bool eventCompare(const Event *);
 
@@ -138,5 +139,7 @@ private:
 
   //@} // End of Private Class Methods of NegativeEvent.
 };
+
+}
 
 #endif

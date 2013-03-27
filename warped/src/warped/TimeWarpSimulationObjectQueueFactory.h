@@ -9,8 +9,7 @@
 #include "SimulationManager.h"
 #include "Configurer.h"
 
-class Event;
-
+namespace warped {
 /** The TimeWarpSimulationObjectQueueFactory class.
 
     This is the class interface for the various Time Warp object queue
@@ -49,5 +48,7 @@ protected:
 
   //@} // End of Protected Class Methods of TimeWarpSimulationObjectQueueFactory.
 };
+
+}
 
 #endif /* TIME_WARP_OBJECT_QUEUE_FACTORY_H_*/

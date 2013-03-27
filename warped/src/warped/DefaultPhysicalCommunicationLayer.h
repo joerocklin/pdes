@@ -6,6 +6,8 @@
 #include "warped.h"
 #include "eclmpl/PhysicalCommunicationLayer.h"
 
+namespace warped {
+
 /** The DefaultPhysicalCommunicationLayer class.
 
     This is a default physical communication layer, derived from the
@@ -72,5 +74,7 @@ public:
 
   //@} // End of Public Class Methods of DefaultPhysicalCommunicationLayer.
 };
+
+}
 
 #endif

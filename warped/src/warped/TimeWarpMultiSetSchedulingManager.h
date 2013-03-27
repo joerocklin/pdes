@@ -6,6 +6,8 @@
 #include "warped.h"
 #include "SchedulingManager.h"
 
+namespace warped {
+
 class SimulationObject;
 class TimeWarpSimulationManager;
 
@@ -27,5 +29,7 @@ private:
   TimeWarpSimulationManager *mySimulationManager;
   const VTime *lastScheduledTime;
 };
+
+}
 
 #endif

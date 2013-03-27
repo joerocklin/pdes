@@ -14,8 +14,7 @@ using std::vector;
 using std::list;
 using std::ofstream;
 
-class Event;
-class VTime;
+namespace warped {
 
 /** The OutputEvents class.
 
@@ -141,5 +140,7 @@ private:
 
   //@} // End of Private Class Methods of OutputEvents.
 };
+
+}
 
 #endif

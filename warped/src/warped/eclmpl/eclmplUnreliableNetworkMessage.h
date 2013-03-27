@@ -4,6 +4,8 @@
 #include "eclmplCommonInclude.h"
 #include "NetworkMessage.h"
 
+namespace warped {
+
 enum eclmplUnreliableNetworkMessageType {UNDEFINED, INITIALIZE, START, APPLICATION, CONTROL, FINALIZE, SYNCH};
 
 struct eclmplUnreliableNetworkMessageHeader {
@@ -74,4 +76,7 @@ protected:
   /// Advertised window size for number of NetworkMessages, not size in bytes.
   //short advertisedWindow;
 };
+
+}
+
 #endif

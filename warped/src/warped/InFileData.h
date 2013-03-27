@@ -5,6 +5,8 @@
 
 using std::streampos;
 
+namespace warped {
+
 /** The InFileData class
 
     This class represents a container class that stores the current
@@ -68,4 +70,7 @@ protected:
 
    //@} // End of Protected Class Attributes of InFileData.
 };
+
+}
+
 #endif

@@ -5,6 +5,8 @@
 
 #include "DefaultTimeWarpEventContainer.h"
 
+namespace warped {
+
 /**
     This class is the same as the base DefaultTimeWarpEventContainter
     class except for the remove function, which is modified to handle
@@ -18,5 +20,7 @@ public:
    bool handleAntiMessage( SimulationObject *reclaimer, const NegativeEvent *eventToRemove );
 
 };
+
+}
 
 #endif

@@ -5,6 +5,8 @@
 
 #include <iostream>
 
+namespace warped {
+
 /** The class ObjectID.
 
     In defining this revision of {\tt WARPED}, the developers had long
@@ -226,5 +228,7 @@ public:
     return (lhs == rhs);
   }
 };
+
+}
 
 #endif

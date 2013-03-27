@@ -4,6 +4,8 @@
 using std::cerr;
 using std::endl;
 
+using namespace warped;
+
 DefaultPhysicalCommunicationLayer::DefaultPhysicalCommunicationLayer(){};
 
 DefaultPhysicalCommunicationLayer::~DefaultPhysicalCommunicationLayer(){};

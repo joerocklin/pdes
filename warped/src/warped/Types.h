@@ -5,7 +5,8 @@
 
 /** This file holds the common stuff that is needed all round the system
     like enumerations, error codes etc... */
-
+namespace warped {
+  
 enum Kind { UNKNOWN, FACTORY, SUB_FACTORY, STUB, OBJECT, ANY,
             SSL_BASE, SSL_COMPONENT_DEFINITION, SSL_COMPONENT_INSTANTIATION,
             SSL_NET_LIST, SSL_LABEL, SSL_MODULE, SSL_DESIGN_FILE,
@@ -14,5 +15,7 @@ enum Kind { UNKNOWN, FACTORY, SUB_FACTORY, STUB, OBJECT, ANY,
 enum MessageKind{ UNKNOWN_MSG, LIST, SETUP_SIMULATION, SIMULATE,
                   FINISH, ABORT_MSG, SEARCH, CREATE_OBJECT, NET_LIST_MSG,
                   EVENT, SPECIFICATION, GENERAL, ERROR_MSG};
+
+}
 
 #endif

@@ -7,6 +7,7 @@
 
 using std::cerr;
 using std::endl;
+using namespace warped;
 
 StateManagerImplementationBase::StateManagerImplementationBase( TimeWarpSimulationManager *simMgr, 
 								unsigned int period) :

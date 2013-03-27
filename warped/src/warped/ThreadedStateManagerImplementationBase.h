@@ -12,6 +12,8 @@
 #include <set>
 using std::multiset;
 
+namespace warped {
+
 /** The ThreadedStateManagerImplementationBase class.
 
  The ThreadedStateManagerImplementationBase class is an implementation of
@@ -160,5 +162,7 @@ private:
 	string syncMechanism;
 
 };
+
+}
 
 #endif /* ThreadedSTATEMANAGERIMPLEMENTATIONBASE_H_ */

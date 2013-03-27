@@ -6,6 +6,8 @@
 #include "warped.h"
 #include "CentralizedEventSetSchedulingManager.h"
 
+namespace warped {
+
 class SimulationManager;
 class SimulationObject;
 class TimeWarpEventSetFactory;
@@ -54,5 +56,7 @@ public:
    
   //@} // End of Public Class Methods of CentralizedEventSetSchedulingImplementationBase
 };
+
+}
 
 #endif

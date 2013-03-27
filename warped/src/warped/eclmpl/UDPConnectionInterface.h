@@ -4,6 +4,8 @@
 #include "eclmplCommonInclude.h"
 #include "SocketBasedConnectionInterface.h"
 
+namespace warped {
+
 class UDPConnectionInterface : public SocketBasedConnectionInterface {
 public:
   UDPConnectionInterface(){}
@@ -24,5 +26,7 @@ protected:
   void createSocketPtrVector(vector<eclmplSocket *> &socketVector);
   void obtainAndBindUnusedPorts(vector<eclmplSocket *> &socketVector);
 };
+
+}
 
 #endif

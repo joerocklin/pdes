@@ -11,6 +11,8 @@
 #include <set>
 using std::multiset;
 
+namespace warped {
+
 /** The StateManagerImplementationBase class.
 
     The StateManagerImplementationBase class is an implementation of
@@ -122,10 +124,6 @@ protected:
    //@} // End of Protected Class Attributes of StateManagerImplementationBase.
 };
 
+}
+
 #endif
-
-
-
-
-
-

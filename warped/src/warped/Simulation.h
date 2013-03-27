@@ -9,6 +9,8 @@
 #include "ConfigurationManager.h"
 #include "Configurable.h"
 
+namespace warped {
+  
 class Application;
 
 /** The Simulation class.
@@ -117,5 +119,7 @@ private:
   //@} // End of Private Class Attributes of Simulation.
 
 };
+
+}
 
 #endif

@@ -16,6 +16,8 @@
 using std::multiset;
 using std::list;
 
+namespace warped {
+
 class Event;
 class NegativeEvent;
 class ThreadedTimeWarpSimulationManager;
@@ -114,4 +116,7 @@ private:
 
 	unsigned int minReceiveTime;
 };
+
+}
+
 #endif /* ThreadedTIMEWARPMULTISETLTSF_H_ */

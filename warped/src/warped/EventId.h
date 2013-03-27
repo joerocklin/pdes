@@ -5,6 +5,8 @@
 
 #include <iostream>
 
+namespace warped {
+  
 class EventId {
   friend class Event;
   friend class DefaultEvent;
@@ -66,5 +68,6 @@ operator<<( std::ostream &os, const EventId &toPrint ){
   return os;
 }
 
+}
 
 #endif

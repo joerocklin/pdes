@@ -3,6 +3,8 @@
 
 // See copyright notice in file Copyright in the root directory of this archive.
 
+namespace warped {
+
 /** The Socket class.
 
 This class provides a convenient handle on the network sockets. 
@@ -122,5 +124,7 @@ protected:
   
 private:
 };
+
+}
 
 #endif

@@ -7,6 +7,8 @@
 #include <deque>
 #include <fstream>
 
+namespace warped {
+
 class TimeWarpSimulationManager;
 
 /** The SharedDVFSManager base class.
@@ -45,5 +47,7 @@ private:
 
   bool myWaitingForMessage;
 };
+
+}
 
 #endif //DECENTRALIZED_CLOCK_FREQUENCY_MANAGER_H

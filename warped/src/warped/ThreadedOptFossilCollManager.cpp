@@ -17,6 +17,7 @@
 #include <fstream>
 #include <unistd.h>
 using namespace std;
+using namespace warped;
 
 const char delimiter = '_';
 const string prefixCkptPath = "/tmp/warpedOFCFiles/";

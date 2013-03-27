@@ -6,6 +6,8 @@
 #include "eclmplPhysicalCommunicationLayer.h"
 #include "TCPConnectionInterface.h"
 
+namespace warped {
+
 /** The TCPSelectPhysicalCommunicationLayer class.
 
 */
@@ -41,5 +43,7 @@ protected:
 
   //@} // End of Protected Class Attributes of TCPSelectPhysicalCommunicationLayer.
 };
+
+}
 
 #endif

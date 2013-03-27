@@ -4,6 +4,8 @@
 
 #include "KernelMessage.h"
 
+namespace warped {
+
 /**
    Allows a vector of integers to be passed among nodes
 */
@@ -51,5 +53,7 @@ private:
   std::vector<double> myData;
   MessageRound myRound;
 };
+
+}
 
 #endif //CF_ROLLBACK_VECTOR_MESSAGE_H

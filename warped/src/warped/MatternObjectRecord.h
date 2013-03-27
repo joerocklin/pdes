@@ -5,6 +5,8 @@
 
 #include "warped.h"
 
+namespace warped {
+
 // a token can be white, red, or uncolored
 enum gVTTokenColor {WHITE, RED};
 
@@ -152,5 +154,8 @@ protected:
 
   //@} // End of Private Class Attributes of MatternObjectRecord.
 };
+
+}
+
 #endif
    

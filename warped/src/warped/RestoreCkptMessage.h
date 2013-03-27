@@ -5,7 +5,7 @@
 
 #include "KernelMessage.h"
 
-class SerializedInstance;
+namespace warped {
 
 /** The RestoreCkptMessage class.
 
@@ -104,5 +104,7 @@ private:
 
   //@} // End of Private Class Methods of RestoreCkptMessage.
 };
+
+}
 
 #endif

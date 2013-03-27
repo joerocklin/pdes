@@ -11,11 +11,9 @@
    RED, which means it's on it's second cycle, or BLACK.
 */
 
-class SerializedInstance;
-
 #include "EventMessageBase.h"
 
-class Event;
+namespace warped {
 
 /**
    This class represents the token that gets passed between
@@ -43,5 +41,7 @@ public:
 
 private:
 };
+
+}
 
 #endif

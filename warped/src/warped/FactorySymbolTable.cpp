@@ -2,6 +2,8 @@
 
 #include "FactorySymbolTable.h"
 
+using namespace warped;
+
 FactorySymbolTable::FactorySymbolTable(bool uniqueFlag) {
    head              = NULL;
    tail              = NULL;

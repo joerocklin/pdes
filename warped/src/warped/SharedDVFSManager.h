@@ -6,6 +6,8 @@
 #include "warped.h"
 #include "DVFSManagerImplementationBase.h"
 
+namespace warped {
+
 class TimeWarpSimulationManager;
 
 /** The SharedDVFSManager base class.
@@ -42,5 +44,7 @@ public:
 private:
   std::vector<int>myCPUs;
 };
+
+}
 
 #endif //CENTRALIZED_CLOCK_FREQUENCY_MANAGER_H

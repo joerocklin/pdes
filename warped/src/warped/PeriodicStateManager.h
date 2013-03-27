@@ -5,6 +5,8 @@
 
 #include "StateManagerImplementationBase.h"
 
+namespace warped {
+
 class SimulationObject;
 
 /** The PeriodicStateManager class.
@@ -53,5 +55,7 @@ public:
   //@} // End of Public Class Methods of PeriodicStateManager.
 
 };
+
+}
 
 #endif

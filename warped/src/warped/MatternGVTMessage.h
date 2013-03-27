@@ -11,9 +11,9 @@
    RED, which means it's on it's second cycle, or BLACK.
 */
 
-class SerializedInstance;
-
 #include "KernelMessage.h"
+
+namespace warped {
 
 /**
    This class represents the token that gets passed between
@@ -74,5 +74,7 @@ private:
   const VTime *minimumTimeStamp;
   const int numMessagesInTransit;
 };
+
+}
 
 #endif

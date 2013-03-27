@@ -2,6 +2,7 @@
 
 #include "UsefulWorkMessage.h"
 #include "DeserializerManager.h"
+using namespace warped;
 
 void 
 UsefulWorkMessage::serialize( SerializedInstance *serialized ) const {

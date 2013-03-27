@@ -15,6 +15,8 @@ using std::tr1::unordered_map;
 using std::unordered_map;
 #endif
 
+namespace warped {
+
 /** The base class that implements a SimulationManager.
 
     The SimulationManagerImplementationBase class is the base class
@@ -162,6 +164,8 @@ protected:
   //@} // End of Protected Class Attributes of SimulationManagerImplementationBase.
 
 };
+
+}
 
 #endif
 

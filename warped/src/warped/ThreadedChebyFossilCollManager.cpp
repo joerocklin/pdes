@@ -7,6 +7,7 @@
 #include <math.h>
 
 using std::cout;
+using namespace warped;
 
 ThreadedChebyFossilCollManager::ThreadedChebyFossilCollManager(ThreadedTimeWarpSimulationManager *sim,
                                                int checkPeriod,

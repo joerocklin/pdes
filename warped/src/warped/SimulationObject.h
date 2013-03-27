@@ -9,11 +9,16 @@
 using std::string;
 using std::ios;
 
-class SimulationManager;
-class Event;
-class State;
-class SerializedInstance;
-class SimulationStream;
+#include "Event.h"
+
+namespace warped {
+
+  class SimulationManager;
+  class State;
+  class SimulationStream;
+  class DefaultEvent;
+  class SerializedInstance;
+
 
 /** The abstract base class SimulationObject. 
 
@@ -360,5 +365,7 @@ private:
    
    //@} // End of Private Class Attributes of SimulationObject.
 };
+
+}
 
 #endif

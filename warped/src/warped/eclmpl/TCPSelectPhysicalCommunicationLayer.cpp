@@ -2,6 +2,7 @@
 
 using std::cerr;
 using std::endl;
+using namespace warped;
 
 const unsigned int mtu = ECLMPL_MTU; // No messages with greater size may be received or sent.
                                      // This number itself can be changed of course...

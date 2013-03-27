@@ -1,6 +1,7 @@
 // See copyright notice in file Copyright in the root directory of this archive.
 
 #include "VTime.h"
+using namespace warped;
 
 VTime::~VTime() {}
 

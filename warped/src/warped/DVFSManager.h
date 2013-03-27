@@ -7,6 +7,8 @@
 #include "CommunicatingEntity.h"
 #include "Configurable.h"
 
+namespace warped {
+
 /** The DVFSManager abstract base class.
 
     This is the abstract base class for the various Frequency control implementations
@@ -80,7 +82,9 @@ protected:
   //@} // End of Protected Class Methods of GVTManager.
 };
 
-ostream& operator<<(ostream& out, DVFSManager& cfm);
+ostream& operator<<(ostream& out, warped::DVFSManager& cfm);
+
+}
 
 #endif //CLOCK_FREQUENCY_MANAGER_H
 

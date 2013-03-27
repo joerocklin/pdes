@@ -1,5 +1,6 @@
 #include "eclmplCommonInclude.h"
 #include "NetworkMessage.h"
+using namespace warped;
 
 const unsigned int userDataSizeSerializedLen = 6;
 

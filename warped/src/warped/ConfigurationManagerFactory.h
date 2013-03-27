@@ -5,6 +5,9 @@
 
 #include "warped.h"
 #include "Configurer.h"
+
+namespace warped {
+
 class Application;
 
 /** Creates ConfigurationManagers
@@ -35,4 +38,7 @@ private:
   ConfigurationManagerFactory(){};
 
 };
+
+}
+
 #endif

@@ -3,6 +3,8 @@
 #include "DefaultTimeWarpEventContOneAntiMsg.h"
 #include "NegativeEvent.h"
 
+using namespace warped;
+
 bool
 DefaultTimeWarpEventContOneAntiMsg::handleAntiMessage(SimulationObject *reclaimer,
                                                       const NegativeEvent *eventToRemove ){

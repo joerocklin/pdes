@@ -20,6 +20,8 @@
 using std::cerr;
 using std::endl;
 
+using namespace warped;
+
 #define DEFAULT_PORT_NUMBER 2049
 
 #ifndef MSG_WAITALL

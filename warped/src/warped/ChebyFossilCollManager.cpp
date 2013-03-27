@@ -6,6 +6,7 @@
 #include <math.h>
 
 using std::cout;
+using namespace warped;
 
 ChebyFossilCollManager::ChebyFossilCollManager(TimeWarpSimulationManager *sim,
                                                int checkPeriod,

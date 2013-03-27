@@ -3,6 +3,8 @@
 using std::cerr;
 using std::endl;
 
+using namespace warped;
+
 eclmplConnectionInterface::eclmplConnectionInterface() : connectionId(0), 
   numberOfConnections(0), mtu(0), connected(false) {
 

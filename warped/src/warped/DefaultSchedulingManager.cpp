@@ -4,6 +4,8 @@
 #include "warped/TimeWarpSimulationManager.h"
 #include "warped/Event.h"
 
+using namespace warped;
+
 DefaultSchedulingManager::DefaultSchedulingManager( TimeWarpSimulationManager *initSimulationManager ) 
   : mySimulationManager( initSimulationManager ),
     lastScheduledTime( initSimulationManager->getZero().clone() ){}

@@ -4,6 +4,8 @@
 #include "Event.h"
 #include "DeserializerManager.h"
 
+using namespace warped;
+
 Serializable *
 EventMessage::deserialize( SerializedInstance *data ){
   unsigned int source = data->getUnsigned();

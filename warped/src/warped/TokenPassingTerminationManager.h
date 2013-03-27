@@ -4,6 +4,9 @@
 // See copyright notice in file Copyright in the root directory of this archive.
 
 #include <warped/TerminationManager.h>
+
+namespace warped {
+  
 class TerminateToken;
 class TimeWarpSimulationManager;
 class KernelMessage;
@@ -137,5 +140,7 @@ private:
 
   bool idleSinceLastTokenFlag;
 };
+
+}
 
 #endif

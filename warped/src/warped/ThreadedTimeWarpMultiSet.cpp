@@ -11,6 +11,7 @@ class NegativeEvent;
 using std::cout;
 using std::cerr;
 using std::endl;
+using namespace warped;
 
 ThreadedTimeWarpMultiSet::ThreadedTimeWarpMultiSet(
 		ThreadedTimeWarpSimulationManager* initSimulationManager) {

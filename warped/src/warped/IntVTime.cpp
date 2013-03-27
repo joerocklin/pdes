@@ -12,6 +12,7 @@ using std::ostringstream;
 using std::cerr;
 using std::endl;
 
+using namespace warped;
 
 const VTime &
 IntVTime::getIntVTimeZero(){

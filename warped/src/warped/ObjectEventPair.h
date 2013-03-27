@@ -11,6 +11,8 @@ using std::pair;
 using std::cout;
 using std::endl;
 
+namespace warped {
+
 class VTime;
 class SimulationObject;
 
@@ -65,5 +67,7 @@ private:
 	const ObjectID sender;
 };
 //
+
+}
 
 #endif /* EVENTINFO_H_ */

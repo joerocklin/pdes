@@ -4,6 +4,8 @@
 #include "DefaultPartitioner.h"
 #include "warped.h"
 
+using namespace warped;
+
 DefaultPartitioner::DefaultPartitioner(){}
 
 const PartitionInfo *

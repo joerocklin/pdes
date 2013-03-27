@@ -4,6 +4,8 @@
 using std::cerr;
 using std::endl;
 
+using namespace warped;
+
 SourceObject::SourceObject(const VTime& starttime):startTime(starttime),sourceFinished(false){}
 
 SourceObject::~SourceObject(){}

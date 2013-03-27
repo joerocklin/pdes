@@ -2,6 +2,8 @@
 
 #include "KernelMessage.h"
 
+using namespace warped;
+
 void
 KernelMessage::serialize( SerializedInstance *addTo ) const {
   addTo->addUnsigned( getSender() );

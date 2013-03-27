@@ -2,6 +2,8 @@
 #include "eclmplUnreliableNetworkMessage.h"
 #include <utils/StringUtilities.h>
 
+using namespace warped;
+
 // This is defined in "warped.h" so when we compile this within warped
 // we cannot define it here.
 //const char DELIMITER = ' ';

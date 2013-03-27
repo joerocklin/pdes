@@ -6,6 +6,8 @@
 #include "warped.h"
 #include "Configurable.h"
 
+namespace warped {
+
 class Event;
 
 /** The EventSet abstract base class.
@@ -63,6 +65,9 @@ protected:
   EventSet() {};
 
   //@} // End of Protected Class Methods of EventSet.
+
 };
+
+}
 
 #endif

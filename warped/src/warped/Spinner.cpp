@@ -8,6 +8,8 @@
 #include <unistd.h>
 #endif
 
+using namespace warped;
+
 void 
 Spinner::spinIfRequested( const string &keyName,
 			  SimulationConfiguration &configuration ){

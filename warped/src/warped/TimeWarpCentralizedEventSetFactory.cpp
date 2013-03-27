@@ -7,6 +7,7 @@
 #include "SimulationConfiguration.h"
 using std::cerr;
 using std::endl;
+using namespace warped;
 
 TimeWarpCentralizedEventSetFactory::TimeWarpCentralizedEventSetFactory(){}
 

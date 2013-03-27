@@ -6,10 +6,13 @@
 #include "warped.h"
 #include "Configurable.h"
 
+#include "Event.h"
+
+namespace warped {
+
 class SimulationObject;
 class TimeWarpSimulationObjectQueueFactory;
 class TimeWarpSimulationManager;
-class Event;
 class ObjectEventPair;
 
 /** The TimeWarpSimulationObjectQueue abstract base class.
@@ -88,5 +91,7 @@ protected:
 	TimeWarpSimulationManager *mySimulationManager;
 	//@} // End of Protected Class Methods of TimeWarpSimulationObjectQueue.
 };
+
+}
 
 #endif /* TIME_WARP_OBJECT_QUEUE_H_ */

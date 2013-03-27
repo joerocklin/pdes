@@ -3,6 +3,8 @@
 #include "ThreadedCostAdaptiveStateManager.h"
 #include "ThreadedTimeWarpSimulationManager.h"
 
+using namespace warped;
+
 // These are the default values.
 const unsigned int defaultRecalculationPeriod = 100;
 const unsigned int defaultAdaptionValue = 1;

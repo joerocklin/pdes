@@ -3,6 +3,7 @@
 
 using std::cerr;
 using std::endl;
+using namespace warped;
 
 // Only here for debugging... remove when done.
 void __eclmpl__printCharStr(const char * const str, const unsigned int &strLen) {

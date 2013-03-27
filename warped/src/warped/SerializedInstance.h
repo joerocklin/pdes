@@ -8,7 +8,10 @@
 using std::vector;
 #include <cstring>
 
-class Serializable;
+#include "Serializable.h"
+
+namespace warped {
+
 
 /** The class SerializedInstance. 
 
@@ -346,5 +349,6 @@ operator<<( ostream &os, const SerializedInstance::DATA_TYPE dt ){
   }
   return os;
 }
-  
+
+}  
 #endif

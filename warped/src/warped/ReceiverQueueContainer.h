@@ -6,6 +6,8 @@
 #include "warped.h"
 #include "SenderQueueContainer.h"
 
+namespace warped {
+
 class TimeWarpEventSet;
 
 class ReceiverQueueContainer {
@@ -17,5 +19,7 @@ class ReceiverQueueContainer {
   TimeWarpEventSet* eventSet;
   Event* headEventPtr;
 };
+
+}
 
 #endif

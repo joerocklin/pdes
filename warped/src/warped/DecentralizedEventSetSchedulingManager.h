@@ -5,6 +5,8 @@
 
 #include "SchedulingManager.h"
 
+namespace warped {
+  
 class TimeWarpSimulationManager;
 class SimulationObject;
 class TimeWarpEventSet;
@@ -65,5 +67,7 @@ protected:
 
    //@} // End of Protected Class Methods of SchedulingManager.
 };
+
+}
 
 #endif //ifdef CENTRALIZED_EVENTSET_SCHEDULING_MANAGER_H

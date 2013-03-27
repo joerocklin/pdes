@@ -8,6 +8,8 @@
 #include "controlkit/FIRFilter.h"
 #include "StopWatch.h"
 
+namespace warped {
+
 class TimeWarpSimulationManager;
 class CommunicationManager;
 
@@ -99,5 +101,6 @@ private:
   static const char* uwmStrings[];
 };
 
+}
 
 #endif //CLOCK_FREQUENCY_MANAGER_IMPLEMENTATION_BASE_H

@@ -4,6 +4,8 @@
 using std::cerr;
 using std::endl;
 
+using namespace warped;
+
 SequentialSimulationStream::SequentialSimulationStream(const string& fileName,
                                                        ios::openmode mode)
   : closeflag( true ){

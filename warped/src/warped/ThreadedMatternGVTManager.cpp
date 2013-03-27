@@ -7,6 +7,8 @@
 #include "GVTUpdateMessage.h"
 #include "ThreadedTimeWarpMultiSetSchedulingManager.h"
 
+using namespace warped;
+
 ThreadedMatternGVTManager::ThreadedMatternGVTManager(ThreadedTimeWarpSimulationManager *simMgr,
 		unsigned int period) :
 		mySimulationManager(simMgr), MatternGVTManager(simMgr, period) {

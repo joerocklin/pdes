@@ -7,6 +7,8 @@
 #include "SchedulingManager.h"
 #include "ThreadedTimeWarpMultiSet.h"
 
+namespace warped {
+
 class SimulationObject;
 class ThreadedTimeWarpSimulationManager;
 
@@ -41,5 +43,7 @@ private:
 
 
 };
+
+}
 
 #endif /* ThreadedTIMEWARPMULTISETSCHEDULINGMANAGER_H_ */

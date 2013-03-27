@@ -7,14 +7,17 @@
 #include "warped.h"
 #include "LazyOutputManager.h"
 
+#include "Event.h"
+
 #define FILTER_DEPTH 16
 #define AGGRESSIVE_TO_LAZY 0.5
 #define LAZY_TO_AGGRESSIVE 0.2
 #define THIRD_THRESHOLD 0.1
 
+namespace warped {
+
 enum cancellationMode {AGGRESSIVE, LAZY};
 
-class Event;
 class SimulationObject;
 class OutputManager;
 
@@ -137,5 +140,7 @@ protected:
 
   //@} // End of Protected Class Methods of DynamicOutputManager.
 };
+
+}
 
 #endif

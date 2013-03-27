@@ -13,7 +13,7 @@ using std::tr1::unordered_map;
 using std::unordered_map;
 #endif
 
-
+namespace warped {
 class SimulationConfiguration;
 class SimulationManager;
 class Configurable;
@@ -93,5 +93,7 @@ protected:
   Configurer(){}
   virtual ~Configurer(){}
 };
+
+}
 
 #endif

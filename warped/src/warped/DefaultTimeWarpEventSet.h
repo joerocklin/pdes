@@ -11,6 +11,8 @@ using std::deque;
 #include <vector>
 using std::vector;
 
+namespace warped {
+
 class SimulationObject;
 class TimeWarpEventSetFactory;
 class SimulationConfiguration;
@@ -68,5 +70,7 @@ private:
 
   TimeWarpSimulationManager *mySimulationManager;
 };
+
+}
 
 #endif

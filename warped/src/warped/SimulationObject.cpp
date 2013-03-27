@@ -11,6 +11,8 @@ using std::ios;
 using std::cerr;
 using std::endl;
 
+using namespace warped;
+
 SimulationObject::SimulationObject() : mySimulationManager(),
 				       myObjectID(0),
 				       localVirtualTime(0),

@@ -15,6 +15,8 @@ using std::ostringstream;
 using std::cerr;
 using std::endl;
 
+using namespace warped;
+
 CommunicationManagerImplementationBase::CommunicationManagerImplementationBase( PhysicalCommunicationLayer *physicalLayer, 
 										TimeWarpSimulationManager *simMgr) :
   CommunicationManager( physicalLayer, simMgr ), 

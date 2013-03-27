@@ -7,6 +7,9 @@
 #include "ObjectID.h"
 using std::endl;
 using std::cout;
+
+namespace warped {
+
 enum local_kernel_message_type
 {
 	LKM_EVENT,
@@ -46,5 +49,7 @@ public:
 		return myMessageType;
 	}
 };
+
+}
 
 #endif /* RECEIVEDQUEUEMESSAGE_H_ */

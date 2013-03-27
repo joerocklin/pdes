@@ -11,6 +11,8 @@ using std::vector;
 
 class ConfigurationScope;
 
+namespace warped {
+
 /** This class represents a simulation configuration. */
 class SimulationConfiguration {
 
@@ -161,5 +163,7 @@ private:
 	//converts strings to all uppercase, used in comparing strings
 	const string stringToUpper(string s) const;
 };
+
+}
 
 #endif

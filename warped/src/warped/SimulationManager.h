@@ -8,6 +8,8 @@
 #include "SimulationStream.h"
 #include "Configurable.h"
 
+namespace warped {
+
 /** The abstract base class SimulationManager.
 
     The SimulationManager class is the abstract base class that
@@ -199,5 +201,7 @@ protected:
   //@} // End of  Protected Class Members of SimulationManager.
 
 };
+
+}
 
 #endif

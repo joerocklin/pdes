@@ -14,9 +14,11 @@ using std::tr1::unordered_map;
 using std::unordered_map;
 #endif
 
+namespace warped {
+
 class Deserializer;
-class Serializable;
-class SerializedInstance;
+class warped::Serializable;
+class warped::SerializedInstance;
 
 typedef Serializable *(*deserializeFunc)(SerializedInstance * );
 
@@ -42,5 +44,7 @@ private:
 
   DeserializerManager(){}
 };
+
+}
 
 #endif

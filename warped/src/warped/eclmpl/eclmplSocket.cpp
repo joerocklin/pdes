@@ -1,4 +1,5 @@
 #include "eclmplSocket.h"
+using namespace warped;
 
 #define IP_VER AF_INET // AF_INET for IPv4, AF_INET6 for IPv6
 

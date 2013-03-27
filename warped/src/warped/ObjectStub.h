@@ -9,6 +9,8 @@
 
 using std::ostringstream;
 
+namespace warped {
+
 class SimulationObject;
 class FactoryImplementationBase;
 
@@ -88,6 +90,8 @@ private:
   FactoryImplementationBase *factory;
   //@} // End of Private Class Attributes of ObjectStub.
 };
+
+}
 
 #endif
 

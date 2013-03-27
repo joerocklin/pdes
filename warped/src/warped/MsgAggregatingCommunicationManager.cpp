@@ -3,6 +3,8 @@
 #include "TimeWarpSimulationManager.h"
 #include "MsgAggregatingCommunicationManager.h"
 
+using namespace warped;
+
 MsgAggregatingCommunicationManager::MsgAggregatingCommunicationManager( PhysicalCommunicationLayer *physicalLayer, 
 									TimeWarpSimulationManager *simMgr ) :
   CommunicationManagerImplementationBase(physicalLayer, simMgr),

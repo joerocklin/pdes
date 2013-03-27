@@ -9,6 +9,8 @@
 #include <utils/ConfigurationScope.h>
 #include <utils/Debug.h>
 
+using namespace warped;
+
 OptFossilCollManagerFactory::OptFossilCollManagerFactory(){}
 
 OptFossilCollManagerFactory::~OptFossilCollManagerFactory(){

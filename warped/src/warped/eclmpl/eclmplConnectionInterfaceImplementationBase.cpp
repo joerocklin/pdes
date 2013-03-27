@@ -4,6 +4,8 @@
 
 using std::ifstream;
 
+using namespace warped;
+
 const string configFile = "procgroup";
 const unsigned int maxBuf = 65535;
 

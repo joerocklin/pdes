@@ -3,6 +3,8 @@
 #include "Serializable.h"
 #include "SerializedInstance.h"
 
+using namespace warped;
+
 SerializedInstance *
 Serializable::serialize() const {
   SerializedInstance *retval = new SerializedInstance( getDataType() );

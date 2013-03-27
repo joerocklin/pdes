@@ -4,6 +4,8 @@
 #include "ThreadedTimeWarpSimulationManager.h"
 #include "warped/Event.h"
 
+using namespace warped;
+
 class ThreadedTimeWarpEventSet;
 
 ThreadedTimeWarpMultiSetSchedulingManager::ThreadedTimeWarpMultiSetSchedulingManager(

@@ -12,6 +12,8 @@
 #include "CommunicatingEntity.h"
 #include "Configurable.h"
 
+namespace warped {
+
 /** The ControlManager class.
 
     The ControlManager class represents the central component of the
@@ -94,5 +96,7 @@ private:
   //@} // End of Public Class Methods of ControlManager
 
 };
+
+}
 
 #endif

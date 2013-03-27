@@ -8,6 +8,8 @@
 #include "EventSetFactory.h"
 #include "SequentialSimulationManager.h"
 
+namespace warped {
+
 class Application;
 
 /** The SequentialConfigurationManager class.
@@ -58,4 +60,7 @@ protected:
    //@} // End of Protected Class Attributes of SequentialConfigurationManager
    
 };
+
+}
+
 #endif

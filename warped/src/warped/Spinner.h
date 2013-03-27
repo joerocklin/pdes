@@ -7,6 +7,8 @@
 #include <string>
 using std::string;
 
+namespace warped {
+  
 /** This code allows us to insert places where an "infinite" loop is
     entered.  The variable we spin on is marked volatile, so the compiler
     won't optimize it out.  This means we can come along in the debugger and
@@ -22,5 +24,7 @@ public:
 			       SimulationConfiguration &configuration );
 
 };
+
+}
 
 #endif

@@ -9,7 +9,7 @@
 #include "SimulationManager.h"
 #include "Configurer.h"
 
-class Event;
+namespace warped {
 
 /** The TimeWarpEventSetFactory class.
 
@@ -49,5 +49,7 @@ protected:
    
   //@} // End of Protected Class Methods of TimeWarpEventSetFactory.
 };
+
+}
 
 #endif

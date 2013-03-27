@@ -10,9 +10,11 @@
 #include "OutputManager.h"
 using std::ofstream;
 
-class TimeWarpSimulationManager;
-
 using std::multiset;
+
+namespace warped {
+
+class TimeWarpSimulationManager;
 
 /** The OutputManagerImplementationBase class.
 
@@ -114,5 +116,7 @@ private:
 
   ofstream *myStream;
 };
+
+}
 
 #endif

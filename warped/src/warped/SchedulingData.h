@@ -6,6 +6,8 @@
 #include "warped.h"
 #include "ReceiverQueueContainer.h"
 
+namespace warped {
+  
 class SchedulingData {
  public:
 
@@ -38,6 +40,8 @@ class SchedulingData {
   bool popHeapFlag;
   bool makeHeapFlag;
 };
+
+}
 
 #endif
 

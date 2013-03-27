@@ -2,6 +2,8 @@
 
 #include "Configurable.h"
 
+using namespace warped;
+
 vector<Configurer *> &
 Configurable::getConfigurersEmpty(){
   static vector<Configurer *> &retval = *new vector<Configurer *>;

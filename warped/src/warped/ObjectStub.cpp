@@ -3,6 +3,8 @@
 #include "ObjectStub.h"
 #include "FactoryImplementationBase.h"
 
+using namespace warped;
+
 ObjectStub::ObjectStub(FactoryImplementationBase *myFactory) {
   factory = myFactory;
 }

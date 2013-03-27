@@ -8,8 +8,11 @@
 #include "EventId.h"
 #include <vector>
 
-class NegativeEvent;
 using namespace std;
+
+namespace warped {
+
+class NegativeEvent;
 
 class StragglerEvent: public Event {
 public:
@@ -69,4 +72,7 @@ private:
     bool stragglerType;
     const vector<const NegativeEvent *> eventsToCancel;
 };
+
+}
+
 #endif /* STRAGGLEREVENT_H_ */

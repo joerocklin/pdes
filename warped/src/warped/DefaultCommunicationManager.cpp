@@ -2,6 +2,8 @@
 
 #include "DefaultCommunicationManager.h"
 
+using namespace warped;
+
 DefaultCommunicationManager::DefaultCommunicationManager( PhysicalCommunicationLayer *initPhysicalLayer, 
 							  TimeWarpSimulationManager *initSimulationManager) :
   CommunicationManagerImplementationBase( initPhysicalLayer, initSimulationManager ){};

@@ -6,6 +6,8 @@
 #include "eclmplContactInfo.h"
 #include "eclmplConfigFileTable.h"
 
+namespace warped {
+
 /** The slaveStartupInfo struct.
 
     This structure is used for storing information necessary to
@@ -219,5 +221,7 @@ protected:
 
   //@} // End of Protected Class Methods of eclmplConnectionInterfaceImplementationBase.
 };
+
+}
 
 #endif

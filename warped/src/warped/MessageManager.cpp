@@ -5,6 +5,8 @@
 using std::cerr;
 using std::endl;
 
+using namespace warped;
+
 MessageManager::MessageManager( unsigned int numLPs, 
 				CommunicationManager *commManager,
 				SimulationManager *simMgr,

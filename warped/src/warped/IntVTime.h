@@ -9,6 +9,8 @@
 #include <warped/Serializable.h>
 #include <warped/VTime.h>
 
+namespace warped {
+
 class IntVTime : public VTime {
 
 public:
@@ -136,5 +138,6 @@ private:
 
 };
 
+}
 
 #endif

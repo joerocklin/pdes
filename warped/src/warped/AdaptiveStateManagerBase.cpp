@@ -5,6 +5,8 @@
 #include "TimeWarpSimulationManager.h"
 #include "Event.h"
 
+using namespace warped;
+
 AdaptiveStateManagerBase::AdaptiveStateManagerBase(TimeWarpSimulationManager *simMgr):
    StateManagerImplementationBase(simMgr,0),
    eventTime( simMgr->getNumberOfSimulationObjects(), 0 ),

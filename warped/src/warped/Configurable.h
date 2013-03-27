@@ -6,6 +6,8 @@
 #include <vector>
 using std::vector;
 
+namespace warped {
+
 class Configurer;
 class SimulationConfiguration;
 
@@ -26,6 +28,8 @@ protected:
   Configurable(){}
   virtual ~Configurable(){}
 };
+
+}
 
 #endif
 

@@ -9,6 +9,8 @@ using std::cout;
 using std::cerr;
 using std::endl;
 
+using namespace warped;
+
 OutputManagerImplementationBase::OutputManagerImplementationBase( TimeWarpSimulationManager *simMgr) :
   mySimulationManager(simMgr),
   myOutputEvents(simMgr->getNumberOfSimulationObjects(), NULL){

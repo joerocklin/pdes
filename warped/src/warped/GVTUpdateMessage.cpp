@@ -3,6 +3,8 @@
 #include "GVTUpdateMessage.h"
 #include "DeserializerManager.h"
 
+using namespace warped;
+
 void 
 GVTUpdateMessage::serialize( SerializedInstance *addTo ) const {
   KernelMessage::serialize( addTo );

@@ -5,6 +5,8 @@
 
 #include "CommunicatingEntity.h"
 
+namespace warped {
+
 /**
    Interface describing a termination manager.
 */
@@ -37,5 +39,7 @@ public:
   */
   virtual void ofcReset() = 0;
 };
+
+}
 
 #endif

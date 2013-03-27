@@ -8,6 +8,8 @@
 #include "controlkit/IIRFilter.h"
 #include "StopWatch.h"
 
+namespace warped {
+
 /** The AdaptiveStateManagerBase class.
 
     This class is an implementation of the periodic state manager.
@@ -183,5 +185,7 @@ private:
 
    //@} // end of Private Class Attributes
 };
+
+}
 
 #endif

@@ -2,6 +2,8 @@
 
 #include "ConsoleIO.h"
 
+using namespace warped;
+
 void directOutputToConsoleOutputStream(){
    // originalCout = cout;
    // cout = *wout;

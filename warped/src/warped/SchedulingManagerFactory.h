@@ -6,7 +6,8 @@
 #include "warped.h"
 #include "Configurer.h"
 
-class Event;
+namespace warped {
+
 class TimeWarpSimulationManager;
 class SimulationObject;
 class SchedulingManager;
@@ -56,6 +57,8 @@ protected:
 
   //@} // End of Protected Class Attributes of SchedulingManagerFactory 
 };
+
+}
 
 #endif
 

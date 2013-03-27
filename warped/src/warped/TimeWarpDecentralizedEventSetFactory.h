@@ -7,6 +7,8 @@
 #include "TimeWarpDecentralizedEventSet.h"
 #include "TimeWarpSimulationManager.h"
 
+namespace warped {
+
 class Event;
 class SimulationManager;
 
@@ -58,5 +60,7 @@ protected:
 
   //@} // End of Protected Class Attributes of EventSetAbstractFactory.
 };
+
+}
 
 #endif

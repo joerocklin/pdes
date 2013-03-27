@@ -4,6 +4,8 @@
 #include "Event.h"
 #include "DeserializerManager.h"
 
+using namespace warped;
+
 NegativeEventMessage::~NegativeEventMessage() {
     vector<const NegativeEvent*>::const_iterator it(myEvents.begin());
     while (it != myEvents.end())

@@ -5,6 +5,8 @@
 
 #include <warped/TerminationManager.h>
 
+namespace warped {
+
 class TimeWarpSimulationManager;
 class KernelMessage;
 
@@ -85,5 +87,7 @@ private:
   SIM_MGR_IDLE_STATUS mySimManagerStatus;
 
 };
+
+}
 
 #endif

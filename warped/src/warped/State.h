@@ -3,6 +3,8 @@
 
 // See copyright notice in file Copyright in the root directory of this archive.
 
+namespace warped {
+  
 /** The abstract base class State.
 
     Any simulation object of significance will have some state that needs
@@ -72,5 +74,7 @@ protected:
 
   //@} // End of Protected Class Methods of State
 };
+
+}
 
 #endif

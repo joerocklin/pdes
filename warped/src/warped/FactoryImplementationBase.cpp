@@ -3,6 +3,8 @@
 #include "ObjectStub.h"
 #include "FactoryImplementationBase.h"
 
+using namespace warped;
+
 FactoryImplementationBase::FactoryImplementationBase(FactoryImplementationBase *parent){
    parentFactory = parent;
    mySymbolTable = new FactorySymbolTable(true);

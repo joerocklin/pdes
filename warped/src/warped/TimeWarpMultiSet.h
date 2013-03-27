@@ -12,7 +12,10 @@
 using std::multiset;
 using std::list;
 
-class Event;
+#include "Event.h"
+
+namespace warped {
+
 class NegativeEvent;
 class TimeWarpSimulationManager;
 
@@ -152,5 +155,7 @@ protected:
 
   //@} // End of Protected Class Attributes of TimeWarpMultiSet.
 };
+
+}
 
 #endif

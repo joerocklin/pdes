@@ -3,6 +3,8 @@
 #include "FlatState.h"
 #include <string.h>
 
+using namespace warped;
+
 FlatState::FlatState(){}
 
 FlatState::~FlatState(){}

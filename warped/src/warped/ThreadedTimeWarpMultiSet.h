@@ -15,6 +15,8 @@
 using std::multiset;
 using std::list;
 
+namespace warped {
+
 class Event;
 class NegativeEvent;
 class ThreadedTimeWarpSimulationManager;
@@ -211,5 +213,7 @@ private:
 	#define OBJID 0
 	#define LTSFOWNER 1
 };
+
+}
 
 #endif /* ThreadedTIMEWARPMULTISET_H_ */

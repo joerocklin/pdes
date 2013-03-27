@@ -5,6 +5,7 @@
 #include "SplayTree.h"
 
 using namespace std;
+using namespace warped;
 
 SplayTree::SplayTree() {
    root = NULL;

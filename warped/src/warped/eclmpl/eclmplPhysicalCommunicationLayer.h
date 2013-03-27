@@ -8,6 +8,8 @@
 
 using std::deque;
 
+namespace warped {
+
 /** The eclmplPhysicalCommunicationLayer class.
 
 */
@@ -84,5 +86,7 @@ protected:
 
   //@} // End of Protected Class Attributes of eclmplPhysicalCommunicationLayer.
 };
+
+}
 
 #endif

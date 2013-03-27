@@ -7,6 +7,8 @@
 #include <fstream>
 #include "SimulationObject.h"
 
+namespace warped {
+
 class Event;
 class CommunicationManager;
 class SimulationConfiguration;
@@ -114,5 +116,7 @@ private:
     //@} // End of Private Class Attributes of SimulationObjectProxy
   
     };
+
+  }
 
 #endif

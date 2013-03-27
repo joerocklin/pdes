@@ -6,6 +6,8 @@
 #include "warped.h"
 #include "KernelMessage.h"
 
+namespace warped {
+
 /** The CommunicatingEntity abstract base class.
 
     Any class that wants to receive kernel messages from the
@@ -41,5 +43,7 @@ protected:
    CommunicatingEntity(){};
    //@} // End of Protected Class Methods of CommunicatingEntity.
 };
+
+}
 
 #endif

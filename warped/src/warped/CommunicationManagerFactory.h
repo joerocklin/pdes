@@ -6,6 +6,8 @@
 #include "warped.h"
 #include "Configurer.h"
 
+namespace warped {
+  
 class CommunicationManager;
 class PhysicalCommunicationLayer;
 class TimeWarpSimulationManager;
@@ -66,5 +68,7 @@ private:
 
   //@} // End of Private Class Attributes of CommunicationManagerFactory.
 };
+
+}
 
 #endif

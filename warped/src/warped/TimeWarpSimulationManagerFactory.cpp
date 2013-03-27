@@ -6,6 +6,7 @@
 #include "ThreadedTimeWarpSimulationManager.h"
 using std::cerr;
 using std::endl;
+using namespace warped;
 
 TimeWarpSimulationManagerFactory::TimeWarpSimulationManagerFactory(){}
 

@@ -4,6 +4,8 @@
 #include "TimeWarpSimulationManager.h"
 #include "Event.h"
 
+using namespace warped;
+
 AggressiveOutputManager::AggressiveOutputManager( TimeWarpSimulationManager *simMgr ) :
   OutputManagerImplementationBase( simMgr ){
 }

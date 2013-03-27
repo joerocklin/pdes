@@ -8,6 +8,8 @@
 
 using std::unary_function;
 
+namespace warped {
+
 /**
    Encapsulates an in-transit MPI message.
 */
@@ -88,5 +90,7 @@ protected:
   */
   mutable MPI_Status myLastStatus;
 };
+
+}
 
 #endif

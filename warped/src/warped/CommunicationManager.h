@@ -16,6 +16,8 @@ using std::tr1::unordered_map;
 using std::unordered_map;
 #endif
 
+namespace warped {
+  
 class KernelMessage;
 class SimulationObject;
 class TimeWarpSimulationManager;
@@ -195,5 +197,7 @@ protected:
 	//@} // End of Protected Class Attributes of CommunicationManager.
 
 };
+
+}
 
 #endif

@@ -15,6 +15,8 @@
 
 using namespace std;
 
+namespace warped {
+
 class ThreadedTimeWarpSimulationManager;
 class TimeWarpSimulationManager;
 class SimulationObject;
@@ -241,5 +243,7 @@ protected:
 
 	//@} // End of Protected Class Methods of OptFossilCollManager.
 };
+
+}
 
 #endif /* ThreadedOPTFOSSILCOLLMANAGER_H_ */

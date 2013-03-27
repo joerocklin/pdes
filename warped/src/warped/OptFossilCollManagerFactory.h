@@ -9,6 +9,8 @@
 #include "Configurer.h"
 #include "ThreadedOptFossilCollManager.h"
 
+namespace warped {
+  
 /** The GVTManagerFactory class.
 
     This is the  factory interface for the various Optimistic Fossil
@@ -46,5 +48,7 @@ private:
   //@} // End of  Private Class Attributes of OptFossilCollManagerFactory.
    
 };
+
+}
 
 #endif

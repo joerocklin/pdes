@@ -7,6 +7,8 @@
 #include <iostream>
 using std::ostream;
 
+namespace warped {
+
 class EventId;
 /** The SetObject Class.
  This class is used for encapsulating elements such as events and states.
@@ -218,4 +220,7 @@ operator<<(std::ostream& os, const SetObject<Element> &a) {
 	os << a.getMainTime();
 	return os;
 }
+
+}
+
 #endif

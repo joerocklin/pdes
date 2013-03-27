@@ -1,6 +1,8 @@
 #include "UDPConnectionInterface.h"
 #include <utils/StringUtilities.h>
 
+using namespace warped;
+
 const string configFile = "procgroup";
 const int maxBuf = 65535;
 const int sendSocketBufferSize = 65535;

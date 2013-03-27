@@ -7,6 +7,8 @@
 #include "EventSet.h"
 #include "Configurer.h"
 
+namespace warped {
+
 class Event;
 
 /** The EventSetFactory class.
@@ -56,5 +58,7 @@ protected:
   //@} // End of Private Class Attributes of EventSetFactory.
    
 };
+
+}
 
 #endif

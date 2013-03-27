@@ -4,7 +4,8 @@
 // See copyright notice in file Copyright in the root directory of this archive.
 
 #include "TimeWarpMultiSet.h"
-
+namespace warped {
+  
 /** The TimeWarpMultiSetOneAntiMsg class.
 
     The same as the TimeWarpMultiSet class except that it
@@ -30,5 +31,7 @@ public:
   virtual bool handleAntiMessage( SimulationObject *object,
                                   const NegativeEvent *cancelEvent );
 };
+
+}
 
 #endif

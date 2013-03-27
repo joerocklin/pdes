@@ -1,5 +1,7 @@
 #include "StopWatch.h"
 
+using namespace warped;
+
   ////////////////////////////////
   //  Private Member Functions  //
   ////////////////////////////////

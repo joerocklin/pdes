@@ -6,6 +6,8 @@
 #include "CentralizedEventSetSchedulingImplementationBase.h"
 #include "Event.h"
 
+using namespace warped;
+
 CentralizedEventSetSchedulingImplementationBase::CentralizedEventSetSchedulingImplementationBase(SimulationManager *simMgr) :
    CentralizedEventSetSchedulingManager(simMgr) {}
 

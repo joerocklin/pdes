@@ -2,6 +2,8 @@
 
 #include "DeserializerManager.h"
 
+using namespace warped;
+
 void 
 DeserializerManager::registerDeserializer( const string &dataType, 
 					   deserializeFunc functionPtr ){

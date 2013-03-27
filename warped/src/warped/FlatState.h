@@ -6,6 +6,8 @@
 #include "warped.h"
 #include "State.h"
 
+namespace warped {
+
 /** The abstract base class FlatState.
 	 
     This class provides an interface for a default implementation of a
@@ -59,5 +61,7 @@ protected:
 
   //@} // End of Protected Class Methods of FlatState
 };
+
+}
 
 #endif

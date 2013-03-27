@@ -6,6 +6,7 @@
 #include "CommunicationManager.h"
 #include <utils/Debug.h>
 using utils::debug;
+using namespace warped;
 
 #include "TerminateToken.h"
 #include "CommunicationManager.h"

@@ -4,6 +4,8 @@
 using std::ostringstream;
 using std::istringstream;
 
+using namespace warped;
+
 void
 eclmplConfigFileTable::serialize(char *buf, unsigned int &bufSize) const {
   ostringstream serializedBuf;

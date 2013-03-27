@@ -4,6 +4,9 @@
 #define THREADEDMATTERNGVTMANAGER_H_
 
 #include "MatternGVTManager.h"
+
+namespace warped {
+  
 class MatternGVTMessage;
 class ThreadedTimeWarpSimulationManager;
 
@@ -36,4 +39,7 @@ private:
 
 	ThreadedTimeWarpSimulationManager* mySimulationManager;
 };
+
+}
+
 #endif /* ThreadedMATTERNGVTMANAGER_H_ */

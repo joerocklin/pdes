@@ -4,6 +4,7 @@
 #include "UDPSelectPhysicalCommunicationLayer.h"
 using std::cerr;
 using std::endl;
+using namespace warped;
 
 // When running timings, we don't want to print stuff...
 //#define ECLMPL_DEBUG(x)

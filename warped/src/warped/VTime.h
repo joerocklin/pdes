@@ -10,6 +10,8 @@
 #include <string>
 #include <stdlib.h>
 
+namespace warped {
+
 class VTime : public Serializable {
 public:
   /// Destructor.
@@ -48,5 +50,6 @@ std::ostream &operator<< (std::ostream &os, const VTime& time) {
   return os;
 }
 
+}
 
 #endif

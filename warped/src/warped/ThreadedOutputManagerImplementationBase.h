@@ -9,10 +9,12 @@
 #include "ThreadedOutputEvents.h"
 #include "ThreadedOutputManager.h"
 using std::ofstream;
+using std::multiset;
+
+namespace warped {
 
 class ThreadedTimeWarpSimulationManager;
 
-using std::multiset;
 
 /** The ThreadedOutputManagerImplementationBase class.
 
@@ -114,5 +116,7 @@ private:
 
   ofstream *myStream;
 };
+
+}
 
 #endif /* ThreadedOUTPUTMANAGERIMPLEMENTATIONBASE_H_ */

@@ -7,6 +7,8 @@
 #include <pthread.h>
 using namespace std;
 
+namespace warped {
+  
 static const int NOONE = -1;
 class LockState {
 public:
@@ -94,5 +96,7 @@ private:
 	int lockOwner;
 	pthread_mutex_t mutexLock;
 };
+
+}
 
 #endif /* LockState_H_ */

@@ -3,6 +3,8 @@
 
 #include "eclmplCommonInclude.h"
 
+namespace warped {
+
 /** The eclmplSocket class.
 
     This class provides a convenient handle on the network sockets. 
@@ -60,6 +62,8 @@ protected:
   struct hostent * wGethostbyname(const char* const name) const;
   int wFcntl(const int &fd, const int &cmd, const long &arg);
 private:
+};
+
 };
 
 #endif

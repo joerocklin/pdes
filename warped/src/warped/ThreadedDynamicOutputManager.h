@@ -12,6 +12,8 @@
 //#define LAZY_TO_AGGRESSIVE 0.2
 //#define THIRD_THRESHOLD 0.1
 
+namespace warped {
+
 enum cancellationModes {
 	Aggressive, Lazy
 };
@@ -155,5 +157,7 @@ protected:
 
 	//@} // End of Protected Class Methods of DynamicOutputManager.
 };
+
+}
 
 #endif /* THREADEDADAPTIVEOUTPUTMANAGER_H_ */

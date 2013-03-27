@@ -14,6 +14,8 @@
 using std::cerr;
 using std::endl;
 
+using namespace warped;
+
 CommunicationManager *
 SimulationObjectProxy::myCommunicationManagerHandle = NULL;
 

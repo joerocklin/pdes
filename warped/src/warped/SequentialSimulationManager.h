@@ -9,6 +9,8 @@
 #include "EventSet.h"
 #include "StopWatch.h"
 
+namespace warped {
+
 class Application;
 
 /** The SequentialSimulationManager class.
@@ -180,5 +182,7 @@ private:
 
   //@} // End of Protected Class Attributes of SequentialSimulationManager.
 };
+
+}
 
 #endif

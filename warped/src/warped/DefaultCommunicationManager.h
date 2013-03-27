@@ -9,6 +9,8 @@
 
 #include <vector>
 
+namespace warped {
+
 /** The DefaultCommunicationManager class.
 
     This is the default communication manager implementation seen by
@@ -41,5 +43,7 @@ public:
   //@} // End of Public Class Methods of DefaultCommunicationManager
 
 };
+
+}
 
 #endif

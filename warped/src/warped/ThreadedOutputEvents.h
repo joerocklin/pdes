@@ -15,6 +15,8 @@ using std::vector;
 using std::list;
 using std::ofstream;
 
+namespace warped {
+
 class Event;
 class VTime;
 
@@ -158,5 +160,7 @@ private:
 
 	//@} // End of Private Class Methods of ThreadedOutputEvents.
 };
+
+}
 
 #endif /* ThreadedOUTPUTEVENTS_H_ */

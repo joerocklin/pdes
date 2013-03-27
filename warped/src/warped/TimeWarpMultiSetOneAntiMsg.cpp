@@ -5,6 +5,8 @@
 #include "TimeWarpMultiSetOneAntiMsg.h"
 #include "TimeWarpSimulationManager.h"
 
+using namespace warped;
+
 TimeWarpMultiSetOneAntiMsg::TimeWarpMultiSetOneAntiMsg( TimeWarpSimulationManager *initSimulationManager ):
   TimeWarpMultiSet( initSimulationManager ){
 }

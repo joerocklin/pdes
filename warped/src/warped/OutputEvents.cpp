@@ -8,6 +8,8 @@
 #include "OptFossilCollManager.h"
 #include <algorithm>
 
+using namespace warped;
+
 OutputEvents::OutputEvents(TimeWarpSimulationManager *simMgr):
   mySimulationManager(simMgr){
 }

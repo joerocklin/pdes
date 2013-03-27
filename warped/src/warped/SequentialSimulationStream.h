@@ -12,6 +12,8 @@ using std::string;
 using std::streambuf;
 using std::ios;
 
+namespace warped {
+
 class SequentialSimulationStream : public SimulationStream {
   friend class SequentialSimulationManager;
 public:
@@ -67,5 +69,7 @@ private:
   */
   bool closeflag;
 };
+
+}
 
 #endif

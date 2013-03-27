@@ -8,6 +8,8 @@
 #include "Event.h"
 #include "OptFossilCollManager.h"
 
+using namespace warped;
+
 PeriodicStateManager::PeriodicStateManager(TimeWarpSimulationManager *simMgr,
                                            unsigned int period ) :
    StateManagerImplementationBase( simMgr, period ){

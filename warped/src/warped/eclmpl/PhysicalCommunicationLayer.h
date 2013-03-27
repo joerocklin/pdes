@@ -3,6 +3,8 @@
 
 #include <warped/warped.h>
 
+namespace warped {
+  
 class SimulationConfiguration;
 class SerializedInstance;
 
@@ -107,5 +109,7 @@ protected:
 
   //@} // End of Protected Class Methods of PhysicalCommunicationLayer.
 };
+
+}
 
 #endif

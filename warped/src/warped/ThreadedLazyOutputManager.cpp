@@ -4,6 +4,8 @@
 #include "ThreadedOutputEvents.h"
 #include "ThreadedTimeWarpSimulationManager.h"
 
+using namespace warped;
+
 ThreadedLazyOutputManager::ThreadedLazyOutputManager(
 		ThreadedTimeWarpSimulationManager *simMgr) :
 	ThreadedOutputManagerImplementationBase(simMgr) {

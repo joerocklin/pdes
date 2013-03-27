@@ -4,6 +4,8 @@
 #include "eclmplCommonInclude.h"
 #include "SocketBasedConnectionInterface.h"
 
+namespace warped {
+
 class TCPConnectionInterface : public SocketBasedConnectionInterface {
 public:
   TCPConnectionInterface(){}
@@ -15,5 +17,7 @@ public:
   void disableNagle();
 protected:
 };
+
+}
 
 #endif

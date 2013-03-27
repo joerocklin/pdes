@@ -10,6 +10,8 @@ using std::for_each;
 using std::cerr;
 using std::endl;
 
+using namespace warped;
+
 ostream *wout;
 ostream *werr;
 

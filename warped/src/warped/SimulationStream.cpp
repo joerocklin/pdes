@@ -2,6 +2,8 @@
 
 #include "SimulationStream.h"
 
+using namespace warped;
+
 ostream& nl(ostream& os){
    ((SimulationStream &)os).flush();
    return os;

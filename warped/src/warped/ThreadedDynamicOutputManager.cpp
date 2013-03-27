@@ -5,6 +5,8 @@
 #include "ThreadedOutputEvents.h"
 #include "Event.h"
 
+using namespace warped;
+
 ThreadedDynamicOutputManager::ThreadedDynamicOutputManager(
 		ThreadedTimeWarpSimulationManager *simMgr, unsigned int filterDepth,
 		double aggr2lazy, double lazy2aggr, double thirdThreshold,

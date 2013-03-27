@@ -11,11 +11,11 @@
    RED, which means it's on it's second cycle, or BLACK.
 */
 
-class SerializedInstance;
-
 #include "KernelMessage.h"
 
-class Event;
+namespace warped {
+  
+  class Event;
 
 /**
    This class represents the token that gets passed between
@@ -50,5 +50,7 @@ private:
   const Event *event;
   const string gVTInfo;
 };
+
+}
 
 #endif

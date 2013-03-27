@@ -4,6 +4,7 @@
 #include "TimeWarpSimulationObjectQueue.h"
 #include "TimeWarpSimulationManager.h"
 #include "SimulationObject.h"
+using namespace warped;
 
 TimeWarpSimulationObjectQueue::TimeWarpSimulationObjectQueue(TimeWarpSimulationManager *initSimulationManager)
 	  : mySimulationManager(initSimulationManager)//,

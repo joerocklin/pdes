@@ -6,6 +6,8 @@
 #include "warped.h"
 #include "TimeWarpEventSet.h"
 
+namespace warped {
+
 class Event;
 class SimulationObject;
 
@@ -39,5 +41,7 @@ protected:
 
    //@} // End of Protected Class Methods of TimeWarpDecentralizedEventSet.
 };
+
+}
 
 #endif //ifdef TIME_WARP_DECENTRALIZED_EVENT_SET

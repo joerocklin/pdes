@@ -13,6 +13,7 @@
 #include <iostream>
 using std::cerr;
 using std::endl;
+using namespace warped;
 
 TimeWarpReceiverQueue::TimeWarpReceiverQueue( TimeWarpSimulationManager *initSimMgr ) :
   schedulingData( 0 ),

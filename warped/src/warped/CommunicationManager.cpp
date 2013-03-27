@@ -5,6 +5,7 @@
 #include "SimulationObject.h"
 #include <sstream>
 using std::istringstream;
+using namespace warped;
 
 CommunicationManager::CommunicationManager( PhysicalCommunicationLayer *physicalLayer,
 					    TimeWarpSimulationManager * ) :

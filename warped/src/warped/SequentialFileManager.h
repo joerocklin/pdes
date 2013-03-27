@@ -18,7 +18,7 @@ using std::unordered_map;
 using std::tr1::unordered_map;
 using std::string;
 
-namespace warped{
+namespace warped {
 
 class SequentialFileManager : public FileManager {
   friend class FileManager;

@@ -4,6 +4,8 @@
 #include "warped/warped.h"
 #include "eclmplCommonInclude.h"
 
+namespace warped {
+
 class eclmplTimer {
 public: 
   eclmplTimer(const double timeOutVal);
@@ -15,5 +17,7 @@ protected:
   timeval startTime;
   double timeOut;
 }; 
+
+}
 
 #endif

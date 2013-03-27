@@ -8,7 +8,7 @@ using std::cout;
 using std::cerr;
 using std::vector;
 
-namespace warped {
+using namespace warped;
 
     SequentialFileManager::SequentialFileManager(){}
 
@@ -56,5 +56,3 @@ namespace warped {
 
         return *retval;
     }
-
-}

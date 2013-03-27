@@ -3,6 +3,8 @@
 
 #include "eclmplCommonInclude.h"
 
+namespace warped {
+  
 /** The eclmplConnectionInterface class.
 
     The eclmplConnectionInterface class is the abstract base class
@@ -204,5 +206,7 @@ protected:
 
  //@} // End of Protected Class Attributes of eclmplConnectionInterface.
 };
+
+}
 
 #endif

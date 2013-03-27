@@ -18,6 +18,8 @@
 #include "CommunicationManagerFactory.h"
 #include "GVTManagerFactory.h"
 
+namespace warped {
+
 /** The TimeWarpConfigurationManager class.
 
     The TimeWarpConfigurationManager class represents the concrete
@@ -95,4 +97,7 @@ protected:
 private:
 
 };
+
+}
+
 #endif

@@ -7,6 +7,8 @@
 #include "CommunicatingEntity.h"
 #include "Configurable.h"
 
+namespace warped {
+
 class ObjectID;
 
 /** The GVTManager abstract base class.
@@ -77,5 +79,8 @@ protected:
    
   //@} // End of Protected Class Methods of GVTManager.
 };
+
+}
+
 #endif
 

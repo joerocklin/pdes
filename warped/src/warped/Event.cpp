@@ -5,6 +5,8 @@
 #include "SerializedInstance.h"
 #include "OptFossilCollManager.h"
 
+using namespace warped;
+
 // No longer using these for optimistic fossil collection.
 //bool Event::usingOptFossilCollMan = false;
 //OptFossilCollManager *Event::myOptFosColMan = NULL;
@@ -12,7 +14,7 @@
 Event::~Event(){}
 
 ostream&
-operator<<(ostream& os, const Event& event) {
+warped::operator<<(ostream& os, const Event& event) {
    os << "sender: " << event.getSender() 
       << " receiver: " << event.getReceiver()
       << " sendTime: " << event.getSendTime()
@@ -22,7 +24,7 @@ operator<<(ostream& os, const Event& event) {
 }
 
 bool
-operator==(const Event &eve1, const Event &eve2){
+warped::operator==(const Event &eve1, const Event &eve2){
   // NOTE: This is used to uniquely identify events for use
   //       in STL containers. Do not use this for comparing
   //       events in lazy cancellation or similar areas. Use

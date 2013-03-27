@@ -5,6 +5,8 @@
 
 #include <warped/Partitioner.h>
 
+namespace warped {
+  
 class DefaultPartitioner : public Partitioner {
 public:
   DefaultPartitioner();
@@ -12,5 +14,7 @@ public:
   const PartitionInfo *partition( const vector<SimulationObject *> *objects,
 				  const unsigned int numLPs ) const;
 };
+
+}
 
 #endif

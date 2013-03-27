@@ -15,6 +15,8 @@
 #include "ThreadedTimeWarpSimulationManager.h"
 #endif
 
+using namespace warped;
+
 CommunicationManagerFactory::CommunicationManagerFactory(){}
 
 CommunicationManagerFactory::~CommunicationManagerFactory(){

@@ -2,6 +2,8 @@
 
 #include "SequentialConfigurationManager.h"
 
+using namespace warped;
+
 SequentialConfigurationManager::SequentialConfigurationManager( Application *initApplication )
   : mySimulationManager( new SequentialSimulationManager( initApplication ) ),
     myEventSetFactory(new EventSetFactory()){}

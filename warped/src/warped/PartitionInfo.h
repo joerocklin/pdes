@@ -6,6 +6,7 @@
 #include <vector>
 using std::vector;
 
+namespace warped {
 class SimulationObject;
 
 /**
@@ -53,5 +54,7 @@ private:
   unsigned int myNumberOfPartitions;
   vector<vector<SimulationObject *> *> myObjectSets;
 };
+
+}
 
 #endif

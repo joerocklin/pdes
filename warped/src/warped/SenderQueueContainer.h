@@ -8,6 +8,8 @@
 #include <list>
 using std::list;
 
+namespace warped {
+
 class SenderQueueContainer {
  public:
   SenderQueueContainer():senderQ(new list<Event*>), headEventPtr(0){};
@@ -91,5 +93,7 @@ class GreaterThan_ScheduleListContainerWithReceiverID {
     return GreaterThanWithReceiverID(*lhs, *rhs);
   }
 };
+
+}
 
 #endif

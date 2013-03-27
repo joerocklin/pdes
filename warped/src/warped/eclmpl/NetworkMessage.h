@@ -3,6 +3,8 @@
 
 #include "eclmplCommonInclude.h"
 
+namespace warped {
+
 /** The NetworkMessage class.
 
 */
@@ -32,4 +34,7 @@ protected:
   unsigned int userDataSize;
   char *userData;
 };
+
+}
+
 #endif

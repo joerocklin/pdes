@@ -6,14 +6,21 @@
 #include <utils/ArgumentParser.h>
 #include <vector>
 #include <string>
+#include "Simulation.h"
 
 using std::vector;
 using std::string;
 
+using namespace warped;
+
+namespace warped {
+  
 class VTime;
 class Application;
 class Simulation;
 class SimulationConfiguration;
+
+}
 
 /**
    This class implements the main function for warped.

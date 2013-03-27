@@ -9,6 +9,8 @@
 
 using std::deque;
 
+namespace warped {
+
 template<class element> class LockedQueue
 {
 private:
@@ -105,5 +107,7 @@ public:
 		return returnVal;
 	}
 };
+
+}
 
 #endif

@@ -4,6 +4,9 @@
 // See copyright notice in file Copyright in the root directory of this archive.
 
 #include "ThreadedStateManagerImplementationBase.h"
+
+namespace warped {
+  
 class ThreadedPeriodicStateManager: public ThreadedStateManagerImplementationBase {
 public:
 	/**@name Public Class Methods of PeriodicStateManager. */
@@ -51,5 +54,7 @@ public:
 	//@} // End of Public Class Methods of PeriodicStateManager.
 
 };
+
+}
 
 #endif /* ThreadedPERIODICSTATEMANAGER_H_ */

@@ -9,6 +9,8 @@
 #include "EventSet.h"
 #include "Event.h"
 
+namespace warped {
+  
 /** The SplayTree class.
 
     The SplayTree class is an implementation of the abstract
@@ -143,5 +145,7 @@ private:
 
   //@} // End of  Private Class Attributes of SplayTree
 };
+
+}
 
 #endif

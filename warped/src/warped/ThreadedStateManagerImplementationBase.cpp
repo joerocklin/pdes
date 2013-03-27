@@ -8,6 +8,7 @@
 
 using std::cerr;
 using std::endl;
+using namespace warped;
 
 ThreadedStateManagerImplementationBase::ThreadedStateManagerImplementationBase(
 		ThreadedTimeWarpSimulationManager *simMgr, unsigned int period) :

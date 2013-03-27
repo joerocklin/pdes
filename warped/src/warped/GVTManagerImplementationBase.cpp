@@ -6,6 +6,8 @@
 using std::cerr;
 using std::endl;
 
+using namespace warped;
+
 GVTManagerImplementationBase::GVTManagerImplementationBase( TimeWarpSimulationManager
 							    *simMgr,
 							    unsigned int

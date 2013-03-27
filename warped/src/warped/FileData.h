@@ -5,6 +5,8 @@
 
 #include <string>
 
+namespace warped {
+
 /** The FileData class.
 
     This class represents a container class that stores the current
@@ -76,5 +78,7 @@ protected:
 
    //@} // End of Protected Class Attributes of FileData.
 };
+
+}
 
 #endif

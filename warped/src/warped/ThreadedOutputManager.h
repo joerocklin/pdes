@@ -8,6 +8,8 @@
 #include <fstream>
 using std::ofstream;
 
+namespace warped {
+
 class Event;
 class SimulationObject;
 
@@ -120,5 +122,7 @@ protected:
 
 	//@} // End of Protected Class Methods of ThreadedOutputManager.
 };
+
+}
 
 #endif /* ThreadedOUTPUTMANAGER_H_ */

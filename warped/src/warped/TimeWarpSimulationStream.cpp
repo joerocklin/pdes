@@ -5,6 +5,7 @@
 #include <sstream>
 
 using std::stringstream;
+using namespace warped;
 
 TimeWarpSimulationStream::TimeWarpSimulationStream(const string& fileName,
 						   ios::openmode mode,

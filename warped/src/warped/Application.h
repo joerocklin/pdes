@@ -12,6 +12,9 @@ using std::vector;
 using std::string;
 
 class ArgumentParser;  // see <utils/ArgumentParser.h>
+
+namespace warped {
+  
 class SimulationObject;
 class PartitionInfo;
 
@@ -119,5 +122,7 @@ protected:
 
 private:
 };
+
+}
 
 #endif

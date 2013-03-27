@@ -6,6 +6,7 @@
 #include "warped.h"
 #include "Configurer.h"
 
+namespace warped {
 
 /** The DVFSManagerFactory class.
 
@@ -40,5 +41,7 @@ public:
    
   //@} // End of Public Class Methods of DVFSManagerFactory.
 };
+
+}
 
 #endif //DVFS_MANAGER_FACTORY_H

@@ -4,6 +4,7 @@
 
 using std::ofstream;
 using std::endl;
+using namespace warped;
 
 #define MPI_DATA_TAG  100
 

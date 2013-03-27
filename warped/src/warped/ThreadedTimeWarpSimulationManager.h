@@ -11,6 +11,8 @@
 #include "ThreadedTimeWarpEventSet.h"
 #include "ThreadedOptFossilCollManager.h"
 
+namespace warped {
+
 class Application;
 //class ThreadedSchedulingManager;
 class SimulationObject;
@@ -411,5 +413,7 @@ private:
 
 	unsigned int numberOfLocalAntimessages;
 };
+
+}
 
 #endif /* ThreadedTIMEWARPSIMULATIONMANAGER_H_ */

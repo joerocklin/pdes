@@ -10,6 +10,8 @@
 #include "EventFunctors.h"
 #include "ThreadedOutputManagerImplementationBase.h"
 
+namespace warped {
+
 /*using std::multiset;
  using std::list;*/
 
@@ -202,5 +204,7 @@ protected:
 
 	//@} // End of Protected Class Methods of ThreadedLazyOutputManager.
 };
+
+}
 
 #endif /* ThreadedLazyOutputManager_H_ */

@@ -1,5 +1,7 @@
 #include "eclmplTimer.h"
 
+using namespace warped;
+
 eclmplTimer::eclmplTimer(const double timeOutVal) : timeOut(timeOutVal) {
   start();
 } // End of constructor.

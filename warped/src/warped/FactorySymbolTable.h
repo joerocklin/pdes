@@ -6,6 +6,8 @@
 #include "warped.h"
 #include "Factory.h"
 
+namespace warped {
+
 class FactorySymbolTable;
 
 class ContainerClass {
@@ -136,6 +138,8 @@ private:
   bool uniqueEntriesOnly;
   //@} // End of Private Class Attributes of FactorySymbolTable.
 };
+
+}
 
 #endif
 

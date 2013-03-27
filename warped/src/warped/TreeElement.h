@@ -5,6 +5,8 @@
 
 #include <iostream>
 
+namespace warped {
+
 class Event;
 class TreeElement;
 
@@ -55,5 +57,7 @@ public:
   }
 
 };
+
+}
 
 #endif

@@ -3,6 +3,8 @@
 #include "RestoreCkptMessage.h"
 #include "DeserializerManager.h"
 
+using namespace warped;
+
 const string &
 RestoreCkptMessage::getRestoreCkptMessageType(){
   static string restoreCkptMessageType = "RestoreCkptMessage";

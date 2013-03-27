@@ -7,6 +7,8 @@
 //#include "EventMessage.h"
 #include "Event.h"
 
+namespace warped {
+  
 class LocalEventMessage : public LocalKernelMessage
 {
 private:
@@ -27,5 +29,7 @@ public:
 		return myMessage;
 	}*/
 };
+
+}
 
 #endif /* LOCAL_EVENT_MESSAGE_H_ */

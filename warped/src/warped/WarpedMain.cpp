@@ -39,6 +39,7 @@ using std::cout;
 using std::cerr;
 using std::cin;
 using std::endl;
+using namespace warped;
 
 // maximum length of command line arguments
 #define MAX_COMMAND_LINE_LENGTH 256

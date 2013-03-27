@@ -13,6 +13,8 @@ using std::string;
 using std::multiset;
 using std::fstream;
 
+namespace warped {
+
 /** The InFileQueue class.
 
     The InFileQueue class represents a queue of file position records
@@ -79,5 +81,8 @@ private:
 
    //@} // End of Private Class Attributes of InFileQueue.
 };
+
+}
+
 #endif
 

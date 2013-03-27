@@ -3,6 +3,8 @@
 #include "TerminateToken.h"
 #include "DeserializerManager.h"
 
+using namespace warped;
+
 TerminateToken::TerminateToken(	unsigned int source,
 				unsigned int dest,
 				unsigned int terminator,

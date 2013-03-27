@@ -6,6 +6,8 @@
 #include <iostream>
 using namespace std;
 
+namespace warped {
+
 static const int NOBODY = -1;
 class AtomicState {
 public:
@@ -40,5 +42,7 @@ public:
 private:
 	int lockOwner;
 };
+
+}
 
 #endif /* AtomicState_H_ */

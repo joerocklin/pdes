@@ -6,6 +6,8 @@
 using std::cerr;
 using std::endl;
 
+using namespace warped;
+
 SerializedInstance::SerializedInstance( const vector<char> &initData ) :
   data( initData ),
   extractIteratorInitialized(false){}
