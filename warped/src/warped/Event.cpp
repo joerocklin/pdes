@@ -58,27 +58,3 @@ Event::serialize( SerializedInstance *addTo ) const {
   addTo->addUnsigned( getReceiver().getSimulationObjectID() );
   addTo->addUnsigned( getEventId().val );
 }
-
-void *
-Event::operator new(size_t size){
-  // No longer overloading the new operator for optimistic fossil collection.
-  /*if(!usingOptFossilCollMan){
-    return ::operator new(size);
-  }
-  else{
-    return myOptFosColMan->newEvent(size);
-  }*/
-  ::operator new(size);
-}
-
-void
-Event::operator delete(void *toDelete){
-  // No longer overloading the delete operator for optimistic fossil collection.
-  /*if(!usingOptFossilCollMan){
-    ::operator delete(toDelete);
-  }
-  else{
-    myOptFosColMan->deleteEvent(toDelete);
-  }*/
-  ::operator delete(toDelete);
-}

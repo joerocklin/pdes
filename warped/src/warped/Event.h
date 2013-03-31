@@ -108,12 +108,6 @@ public:
   /// Overloaded operator ==
   friend bool operator==( const warped::Event &eve1, const Event &eve2 );
 
-  /// Overload operator new.
-  void *operator new(size_t);
-
-  /// Overload operator delete.
-  void operator delete(void *);
-
   /**
      A static utility method that allows the comparision of two events
      based on this interface.  In general derived events will want to
