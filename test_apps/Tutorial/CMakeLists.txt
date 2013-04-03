@@ -1,10 +1,13 @@
 cmake_minimum_required (VERSION 2.6)
 project (Tutorial)
 
-include_directories("${PROJECT_SOURCE_DIR}/../../build/include")
+#include_directories("${PROJECT_SOURCE_DIR}/../../build/include")
 
-FIND_LIBRARY(WARPED_LIBRARY warped "${PROJECT_SOURCE_DIR}/../../build/lib")
-FIND_LIBRARY(UTILS_LIBRARY utils "${PROJECT_SOURCE_DIR}/../../build/lib")
+#FIND_LIBRARY(WARPED_LIBRARY warped "${PROJECT_SOURCE_DIR}/../../build/lib")
+#FIND_LIBRARY(UTILS_LIBRARY utils "${PROJECT_SOURCE_DIR}/../../build/lib")
+
+FIND_LIBRARY(WARPED_LIBRARY warped)
+FIND_LIBRARY(UTILS_LIBRARY utils)
 
 add_executable(Tutorial 
 		tutorial.cxx 

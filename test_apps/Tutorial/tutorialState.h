@@ -5,6 +5,8 @@
 
 #include <warped/State.h>
 
+using namespace warped;
+
 class TutorialState : public State {
 public:
   TutorialState();

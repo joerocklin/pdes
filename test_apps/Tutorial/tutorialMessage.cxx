@@ -4,6 +4,8 @@
 #include <warped/IntVTime.h>
 #include <warped/ObjectID.h>
 
+using namespace warped;
+
 // The constructor for DefaultEvent needs to be called as well
 TutorialMessage::TutorialMessage(
                 const VTime &sendTime,

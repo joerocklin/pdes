@@ -51,7 +51,7 @@ void TutorialObject::initialize() {
   
   if (this->id == 0) {
     // Get the time execution is starting
-    IntVTime sendTime = dynamic_cast<const IntVTime&> (getSimulationTime());
+    IntVTime sendTime = dynamic_cast<const warped::IntVTime&> (getSimulationTime());
   
     TutorialMessage* newMessage = new TutorialMessage(sendTime, sendTime + 1, this, this);
     newMessage->setSourceObject(getName());
