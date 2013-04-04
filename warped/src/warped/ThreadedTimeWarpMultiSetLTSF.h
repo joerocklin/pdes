@@ -25,7 +25,7 @@ class ThreadedTimeWarpSimulationManager;
 class ThreadedTimeWarpMultiSetLTSF {
 public:
 	// Creates an LTSF queue with 'objectCount' input queues
-	ThreadedTimeWarpMultiSetLTSF(int objectCount, int LTSFCountVal, const string syncMechanism, const string scheduleQScheme);
+	ThreadedTimeWarpMultiSetLTSF(int objectCount, int LTSFCountVal, const string syncMechanism, const string scheduleQScheme, int **inLTSFObjId);
 	~ThreadedTimeWarpMultiSetLTSF();
 
 	void getScheduleQueueLock(int threadId);
@@ -66,7 +66,7 @@ public:
 	int getScheduleQueueSize();
 
 	// ??
-	const Event* peekIt(int threadId, int **LTSFObjId);
+	const Event* peekIt(int threadId);
 
 	void getObjectLock(int threadId, int objId);
 
@@ -113,6 +113,8 @@ private:
 	int LTSFCount;
 
 	int objectCount;
+
+    int **LTSFObjId;
 
 	unsigned int minReceiveTime;
 };
