@@ -25,7 +25,7 @@ public:
   void executeProcess();
   void finalize();
   
-  const string &getName() const { return this->name; }
+  const string getName() const { return this->name; }
   const int getId() const { return this->id; }
   const unsigned int getLoopCount() const { return this->loop_count; }
 

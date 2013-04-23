@@ -44,7 +44,7 @@ public:
      Returns a string name for this object.  Each object's name must be
      unique across the simulation.
   */
-  virtual const string &getName() const = 0;
+  virtual const string getName() const = 0;
 
   /// Returns a pointer to the receiver simulation object or a proxy.
   SimulationObject *getObjectHandle( const string& objectToGet ) const;

@@ -53,7 +53,7 @@ public:
   /** Returns the message type for a NegativeEventMessage */
   static const string &getNegativeEventMessageType();
 
-  const string &getName() const {
+  const string getName() const {
     return objectName;
   }
 
