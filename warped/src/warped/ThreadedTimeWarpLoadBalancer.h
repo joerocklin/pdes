@@ -7,6 +7,8 @@
 #include "ThreadedTimeWarpMultiSet.h"
 #include "StopWatch.h"
 
+namespace warped {
+
 // Why is this needed?
 class ThreadedTimeWarpSimulationManager;
 class ThreadedTimeWarpMultiSet;
@@ -54,6 +56,6 @@ private:
 	unsigned *LrolledBackEventsByObj;
 };
 
-
+}
 
 #endif /* THREADEDTIMEWARPLOADBALANCER_H_ */

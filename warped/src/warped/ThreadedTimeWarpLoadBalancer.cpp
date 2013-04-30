@@ -4,6 +4,8 @@
 #include "ThreadedTimeWarpMultiSet.h"
 #include "ThreadedTimeWarpSimulationManager.h"
 
+using namespace warped;
+
 ThreadedTimeWarpLoadBalancer::ThreadedTimeWarpLoadBalancer(
 		ThreadedTimeWarpSimulationManager* initSimulationManager,
 		ThreadedTimeWarpMultiSet* eventSet,
