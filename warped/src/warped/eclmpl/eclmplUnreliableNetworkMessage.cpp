@@ -7,7 +7,8 @@ using namespace warped;
 // This is defined in "warped.h" so when we compile this within warped
 // we cannot define it here.
 //const char DELIMITER = ' ';
-
+namespace warped {
+  
 eclmplUnreliableNetworkMessage::eclmplUnreliableNetworkMessage() {
   hdr.type = UNDEFINED;
   hdr.sourceId = 0;
@@ -261,4 +262,5 @@ operator<< (ostream& os, const eclmplUnreliableNetworkMessage& msg) {
 #endif
   os << "\"";
   return os;
+}
 }

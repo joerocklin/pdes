@@ -2,6 +2,7 @@
 #include "NetworkMessage.h"
 using namespace warped;
 
+namespace warped {
 const unsigned int userDataSizeSerializedLen = 6;
 
 NetworkMessage::NetworkMessage(const unsigned int &size, char *data) {
@@ -91,4 +92,6 @@ operator<< (ostream& os, const NetworkMessage& msg) {
   }
   os << "\"";
   return os;
+}
+
 }
